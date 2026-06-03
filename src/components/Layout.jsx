@@ -1,0 +1,27 @@
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import FloatingWhatsApp from './FloatingWhatsApp';
+import MobileCallButton from './MobileCallButton';
+
+export default function Layout({ children }) {
+  const { pathname } = useLocation();
+
+  // Automatically scroll back to top of page on route shifts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+
+  return (
+    <div className="flex flex-col min-h-screen bg-brand-bg text-brand-text font-sans antialiased">
+      <Header />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+      <MobileCallButton />
+    </div>
+  );
+}

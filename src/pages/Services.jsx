@@ -1,0 +1,264 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Laptop, Brain, Users, TrendingUp, CheckCircle, Target, ArrowRight } from 'lucide-react';
+import Seo from '../components/Seo';
+import techIllustration from '../assets/tech_illustration.png';
+import aiIllustration from '../assets/ai_illustration.png';
+import growthIllustration from '../assets/growth_illustration.png';
+
+export default function Services() {
+  const navigate = useNavigate();
+  const whatsappUrl = "https://wa.me/919944283316?text=Hello%20Maruthu%2C%0A%0AI%20visited%20the%20M2P%20Nexus%20website%20and%20would%20like%20to%20discuss%20my%20business%20requirements.%0A%0APlease%20contact%20me.%0A%0AThank%20you.";
+
+  const servicesList = [
+    {
+      id: 'technology',
+      title: 'Technology Solutions',
+      icon: Laptop,
+      illustration: techIllustration,
+      description: 'We design and develop custom, secure corporate software platforms, billing software, and unified resource planners (ERPs) engineered to fit your specific operational structure. We avoid cookie-cutter templates in favor of high-performance code.',
+      benefits: [
+        'Custom Steel & Agribusiness ERP development to resolve stock discrepancies.',
+        'GST-compliant bilingual billing software that works offline.',
+        'High-performance React/Node.js web systems optimized for search engines.',
+        'Normalization of legacy SQL databases and transition from manual Excel logs.'
+      ],
+      outcomes: [
+        'Up to 90% reduction in paper-based entry operations.',
+        'Real-time inventory and delivery logging across all warehouses.',
+        'Secured, role-based system access protecting company data.'
+      ]
+    },
+    {
+      id: 'ai',
+      title: 'AI Solutions',
+      icon: Brain,
+      illustration: aiIllustration,
+      description: 'We integrate advanced machine learning models, automated data extractors, and generative agent pipelines into daily business platforms. We turn unstructured operational logs into automated executive dashboards and predictive files.',
+      benefits: [
+        'Custom automation agents for compiling daily logs, raw invoice data, and bills.',
+        'OpenAI API integrations to handle customer queries and ticket drafting.',
+        'Automatic regional translation frameworks to localize software interfaces.',
+        'Predictive inventory engines to estimate material requirements.'
+      ],
+      outcomes: [
+        'Significant time savings on routine weekly office compilation.',
+        'Instant generation of complex analytics summaries.',
+        'Automated notifications flagging raw material price shifts.'
+      ]
+    },
+    {
+      id: 'workforce',
+      title: 'Workforce Solutions',
+      icon: Users,
+      illustration: null, // Custom layout for workforce
+      description: 'Finding skilled developers, database managers, and AI architects is challenging. We act as your specialized technical recruitment partner, screening, vetting, and training tech talents specifically prepared to merge with your company.',
+      benefits: [
+        'End-to-end recruitment loops including coding tests and design interviews.',
+        'Custom pre-onboarding bootcamps aligning candidates with your tech stack.',
+        'Contract-to-hire and full-time placement options for agile teams.',
+        'Ongoing technical mentorship and training sessions led by our director.'
+      ],
+      outcomes: [
+        'Reduction in recruitment loops from 45 days to 14 days.',
+        'Higher candidate retention through customized skill alignment.',
+        'Technical staff ready to deploy production code from Day 1.'
+      ]
+    },
+    {
+      id: 'growth',
+      title: 'Business Growth Solutions',
+      icon: TrendingUp,
+      illustration: growthIllustration,
+      description: 'Technology is only as valuable as the growth it drives. We partner with business leaders to build digital footprint maps, optimize lead pipelines, reposition software packages, and execute strategic digital growth plans.',
+      benefits: [
+        'Complete online brand authority analysis and SEO mapping.',
+        'Setup of high-performance marketing channels and CRM tracking systems.',
+        'Software product-market fit audits and SaaS packaging consulting.',
+        'Consulting on entering new regional and global trade corridors.'
+      ],
+      outcomes: [
+        'Increased client inquiries through WhatsApp and LinkedIn.',
+        'Clear product packaging resulting in improved conversion rates.',
+        'A comprehensive digital marketing roadmap for the next 12-24 months.'
+      ]
+    }
+  ];
+
+  return (
+    <>
+      <Seo
+        title="Our Services - Enterprise Tech, AI & Workforce"
+        description="Explore the core capabilities of M2P Nexus: Custom ERP software, AI automation pipelines, technical workforce sourcing, and business growth strategies."
+      />
+
+      {/* Hero Section */}
+      <section className="bg-brand-primary text-white py-16 md:py-24 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 to-transparent"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight font-heading">
+            Our Strategic Services
+          </h1>
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            From coding steel-industry ERPs to placing technical workforce, we build systems designed for long-term operational success.
+          </p>
+        </div>
+      </section>
+
+      {/* Services List Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32">
+          {servicesList.map((service, index) => {
+            const Icon = service.icon;
+            const isEven = index % 2 === 0;
+
+            return (
+              <div
+                key={service.id}
+                id={service.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-brand-border/40 pb-16 md:pb-24 last:border-0 last:pb-0`}
+              >
+                {/* Image block */}
+                <div
+                  className={`lg:col-span-5 ${
+                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  } flex justify-center`}
+                >
+                  {service.illustration ? (
+                    <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-lg border border-brand-border bg-brand-section p-4">
+                      <img
+                        src={service.illustration}
+                        alt={`${service.title} Illustration`}
+                        className="w-full h-auto object-cover rounded-lg"
+                      />
+                    </div>
+                  ) : (
+                    // Fallback for Workforce Solution (Sleek abstract icon grid)
+                    <div className="w-full max-w-md bg-brand-section border border-brand-border rounded-2xl p-8 text-left space-y-6">
+                      <div className="w-12 h-12 bg-white border border-brand-border rounded flex items-center justify-center text-brand-secondary shadow-xs">
+                        <Users className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-lg font-bold text-brand-primary font-heading">Workforce Placement Framework</h4>
+                      <p className="text-sm text-brand-text leading-relaxed">
+                        We screen and train technical talent specifically focused on React, Node.js, .NET, and Python. We match professionals with the culture and codebase of your company.
+                      </p>
+                      <div className="grid grid-cols-2 gap-4 text-xs font-semibold text-brand-primary font-heading border-t border-brand-border pt-4">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-brand-accent rounded-full"></span>
+                          Full Vetting
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-brand-accent rounded-full"></span>
+                          Pre-Training
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-brand-accent rounded-full"></span>
+                          Contract-to-Hire
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-brand-accent rounded-full"></span>
+                          CTO Mentorship
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Content block */}
+                <div
+                  className={`lg:col-span-7 ${
+                    isEven ? 'lg:order-2' : 'lg:order-1'
+                  } space-y-6 text-left`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-brand-section flex items-center justify-center text-brand-secondary border border-brand-border">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
+                      {service.title}
+                    </h2>
+                  </div>
+
+                  <p className="text-base text-brand-text leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    {/* Benefits */}
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold uppercase text-brand-secondary tracking-wider font-heading">
+                        Key Capabilities
+                      </h4>
+                      <ul className="space-y-2 text-sm text-brand-text">
+                        {service.benefits.map((benefit, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full shrink-0 mt-2"></span>
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Outcomes */}
+                    <div className="space-y-3 bg-brand-section border border-brand-border p-4 rounded-lg">
+                      <h4 className="text-sm font-bold uppercase text-brand-primary tracking-wider font-heading flex items-center gap-1.5">
+                        <Target className="w-4 h-4 text-brand-accent" />
+                        Target Outcomes
+                      </h4>
+                      <ul className="space-y-2.5 text-xs font-medium text-brand-primary">
+                        {service.outcomes.map((outcome, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+                            <span>{outcome}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 pt-4">
+                    <button
+                      onClick={() => navigate('/contact')}
+                      className="bg-brand-secondary text-white hover:bg-brand-primary font-bold px-6 py-3 rounded-md text-sm transition-colors cursor-pointer flex items-center gap-1"
+                    >
+                      Request a quote
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="border border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-bold px-6 py-3 rounded-md text-sm transition-colors cursor-pointer flex items-center gap-1.5"
+                    >
+                      Discuss requirements
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Corporate Call To Action */}
+      <section className="bg-brand-primary text-white py-16 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading">
+            Need a Custom Assessment of Your Core Operations?
+          </h2>
+          <p className="text-slate-300 max-w-xl mx-auto text-sm leading-relaxed">
+            Send us a brief description of your daily workflows, material registries, or manual roadblocks. We will compile a custom roadmap detailing software options.
+          </p>
+          <div className="pt-2">
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-brand-secondary text-white hover:bg-slate-800 border border-slate-700 px-8 py-3 rounded-md text-sm font-semibold transition-colors cursor-pointer"
+            >
+              Get Custom Assessment
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
