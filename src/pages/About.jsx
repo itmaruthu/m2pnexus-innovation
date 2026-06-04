@@ -1,8 +1,43 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Eye, Target, Compass, Sparkles, HeartHandshake } from 'lucide-react';
+import { motion } from 'framer-motion';
+import {
+  Shield,
+  Eye,
+  Target,
+  Compass,
+  Sparkles,
+  HeartHandshake,
+  Factory,
+  Building2,
+  Leaf,
+  ShoppingBag,
+  GraduationCap,
+  Truck,
+  Rocket,
+  Settings,
+  FileSpreadsheet,
+  Layers,
+  Zap,
+  Users2,
+  TrendingUp
+} from 'lucide-react';
 import Seo from '../components/Seo';
-import founderPhoto from '../assets/founder_photo.jpg';
+
+// Framer Motion Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 export default function About() {
   const navigate = useNavigate();
@@ -13,6 +48,25 @@ export default function About() {
     { title: 'Business-First Mentality', desc: 'We do not sell technological jargon. We construct solutions strictly designed to protect capital and boost cashflow efficiency.', icon: Target },
     { title: 'Engineering Excellence', desc: 'From database normalization to API caching, our software is built to handle heavy transactional logs without breakdown.', icon: Sparkles },
     { title: 'Regional Empowerment', desc: 'We design localized systems in regional languages, ensuring that non-technical workforces adopt software immediately.', icon: HeartHandshake }
+  ];
+
+  const whoWeHelp = [
+    { title: 'Manufacturers', desc: 'Streamlining factory floors, production schedules, and automated reporting systems.', icon: Factory },
+    { title: 'Construction Companies', desc: 'Deploying heavy-duty resource planner tracking, job cost calculation, and vendor bill workflows.', icon: Building2 },
+    { title: 'Agribusinesses', desc: 'Empowering regional agribusiness and agricultural trading through custom operations ERPs.', icon: Leaf },
+    { title: 'Startups & SMEs', desc: 'Accelerating growth and product launches with rapid MVP development and robust tech foundations.', icon: Rocket },
+    { title: 'EDTECH Providers', desc: 'Enabling interactive cloud platforms, digital administration, and automated learning systems.', icon: GraduationCap },
+    { title: 'Logistics Operators', desc: 'Integrating high-speed supply chain logistics, fleet logs, and digital dispatch.', icon: Truck },
+    { title: 'Retailers & Traders', desc: 'Integrating high-speed point of sale systems, inventory, and digital billing interfaces.', icon: ShoppingBag }
+  ];
+
+  const problemsWeSolve = [
+    { title: 'Manual Processes', desc: 'Eliminate human errors and operational delays by automating administrative and operational tasks.', icon: Settings },
+    { title: 'Excel Dependency', desc: 'Transition fragile, siloed spreadsheets into unified, secure, real-time cloud database applications.', icon: FileSpreadsheet },
+    { title: 'Inventory Challenges', desc: 'Resolve stockouts, excessive storage costs, and unrecorded shrinkage with smart tracking systems.', icon: Layers },
+    { title: 'Digital Adoption Issues', desc: 'Bridge cultural/language gaps with localized, highly intuitive software designed for easy adoption.', icon: Zap },
+    { title: 'Workforce Challenges', desc: 'Address skill gaps and high turnover by sourcing and preparing specialized technology talents.', icon: Users2 },
+    { title: 'Growth Constraints', desc: 'Unlock business potential with scalable cloud architectures and AI-driven growth frameworks.', icon: TrendingUp }
   ];
 
   return (
@@ -131,44 +185,85 @@ export default function About() {
         </div>
       </section>
 
-      {/* Founder Message */}
+      {/* Who We Help */}
       <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Quotes & Story */}
-            <div className="lg:col-span-8 space-y-6 text-left">
-              <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">Founder's Message</span>
-              <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
-                "We design solutions starting directly at the root."
-              </h2>
-              <blockquote className="border-l-4 border-brand-secondary pl-4 py-1 text-lg italic text-brand-secondary font-medium">
-                "Our software is built to empower people. When we write an ERP for a steel manufacturer or a coconut trader, we spend time on the factory floor and in the warehouses. We ensure that our systems speak the language of the operators, making digital adoption swift, natural, and highly profitable."
-              </blockquote>
-              <div className="space-y-4 text-base text-brand-text leading-relaxed">
-                <p>
-                  Technology transformation fails when software is too complex or detached from the business's day-to-day reality. At M2P Nexus, we follow a 'Business-First' methodology. We analyze your cash flow, your material receipts, your billing delays, and your labor constraints before recommending lines of code.
-                </p>
-                <p>
-                  We are here to serve as your long-term strategic technology partner, helping your traditional operations adapt, compete, and lead in a rapidly changing digital economy.
-                </p>
-              </div>
-              <div className="pt-2">
-                <p className="text-lg font-bold text-brand-primary font-heading">Maruthu Pandi PT</p>
-                <p className="text-xs text-brand-accent font-semibold tracking-wider font-heading">Founder & Director, M2P Nexus</p>
-              </div>
-            </div>
-
-            {/* Right: Picture */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-white shadow-md bg-white">
-                <img
-                  src={founderPhoto}
-                  alt="Maruthu Pandi PT"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Who We Help</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
+              Tailored Digital Transformations for Key Sectors
+            </h2>
+            <p className="text-lg text-brand-text">
+              We specialize in custom tech transformations that resolve specific growth and administrative blockers for organizations of all sizes.
+            </p>
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 text-left"
+          >
+            {whoWeHelp.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeInUp}
+                  className="bg-white border border-brand-border p-6 rounded-lg shadow-xs hover:shadow-md transition-all hover:-translate-y-1 group"
+                >
+                  <div className="w-12 h-12 bg-brand-section rounded-md flex items-center justify-center mb-4 text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white transition-all">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-brand-primary font-heading mb-2">{item.title}</h3>
+                  <p className="text-sm text-brand-text leading-relaxed">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Problems We Solve */}
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">Our Focus</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
+              Operational Challenges We Solve
+            </h2>
+            <p className="text-lg text-brand-text">
+              We replace operational friction with streamlined, robust digital workflows.
+            </p>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+          >
+            {problemsWeSolve.map((prob, idx) => {
+              const Icon = prob.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeInUp}
+                  className="bg-brand-section border border-brand-border p-8 rounded-lg flex gap-4 shadow-xs"
+                >
+                  <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-brand-primary font-heading">{prob.title}</h3>
+                    <p className="text-sm text-brand-text leading-relaxed">{prob.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 

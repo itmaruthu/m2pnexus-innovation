@@ -14,11 +14,6 @@ import {
   Truck,
   Rocket,
   ShieldCheck,
-  Zap,
-  Settings,
-  FileSpreadsheet,
-  Layers,
-  Users2,
   ChevronRight,
   Phone,
   Mail
@@ -57,24 +52,6 @@ export default function Home() {
   const emailUrl = "mailto:m2pnexus2026@gmail.com?subject=Business%20Enquiry%20from%20Website";
 
   // Data mapping
-  const whoWeHelp = [
-    { title: 'Manufacturers', desc: 'Streamlining factory floors, production schedules, and automated reporting systems.', icon: Factory },
-    { title: 'Engineering Companies', desc: 'Deploying heavy-duty ERP and inventory tracking workflows for precise project management.', icon: Wrench },
-    { title: 'SMEs', desc: 'Providing professional enterprise-level tech tools scaled down for small-to-medium business agility.', icon: Building2 },
-    { title: 'Traders', desc: 'Integrating high-speed supply chain logistics and digital billing interfaces.', icon: ShoppingBag },
-    { title: 'Farmers', desc: 'Empowering regional agribusiness and coconut trading through custom operations ERPs.', icon: Leaf },
-    { title: 'Educational Institutions', desc: 'Enabling interactive cloud platforms, digital administration, and automated grading frameworks.', icon: GraduationCap },
-    { title: 'Startups', desc: 'Accelerating product launches with rapid MVP development and robust tech foundations.', icon: Rocket }
-  ];
-
-  const problemsWeSolve = [
-    { title: 'Manual Processes', desc: 'Eliminate human errors and operational delays by automating administrative and operational tasks.', icon: Settings },
-    { title: 'Excel Dependency', desc: 'Transition fragile, siloed spreadsheets into unified, secure, real-time cloud database applications.', icon: FileSpreadsheet },
-    { title: 'Inventory Challenges', desc: 'Resolve stockouts, excessive storage costs, and unrecorded shrinkage with smart tracking systems.', icon: Layers },
-    { title: 'Digital Adoption Issues', desc: 'Bridge cultural/language gaps with localized, highly intuitive software designed for easy adoption.', icon: Zap },
-    { title: 'Workforce Challenges', desc: 'Address skill gaps and high turnover by sourcing and preparing specialized technology talents.', icon: Users2 },
-    { title: 'Growth Constraints', desc: 'Unlock business potential with scalable cloud architectures and AI-driven growth frameworks.', icon: TrendingUp }
-  ];
 
   const solutionsWeProvide = [
     { title: 'Technology Solutions', desc: 'Custom enterprise software, ERP developments, high-traffic billing software, and custom business portals built with modern architectures.', icon: Laptop, link: '/services' },
@@ -198,87 +175,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: Who We Help */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
-              Who We Help
-            </h2>
-            <p className="text-lg text-brand-text">
-              We specialize in custom tech transformations that resolve specific growth and administrative blockers for organizations of all structures.
-            </p>
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 text-left"
-          >
-            {whoWeHelp.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  variants={fadeInUp}
-                  className="bg-white border border-brand-border p-6 rounded-lg shadow-xs hover:shadow-md transition-all hover:-translate-y-1 group"
-                >
-                  <div className="w-12 h-12 bg-brand-section rounded-md flex items-center justify-center mb-4 text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white transition-all">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-brand-primary font-heading mb-2">{item.title}</h3>
-                  <p className="text-sm text-brand-text leading-relaxed">{item.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 4: Problems We Solve */}
-      <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
-              Problems We Solve
-            </h2>
-            <p className="text-lg text-brand-text">
-              We replace operational friction with streamlined, robust digital workflows.
-            </p>
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
-          >
-            {problemsWeSolve.map((prob, idx) => {
-              const Icon = prob.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  variants={fadeInUp}
-                  className="bg-white border border-brand-border p-8 rounded-lg flex gap-4 shadow-xs"
-                >
-                  <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-brand-primary font-heading">{prob.title}</h3>
-                    <p className="text-sm text-brand-text leading-relaxed">{prob.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 5: Solutions We Provide */}
+      {/* SECTION 3: Solutions We Provide */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-4 max-w-3xl mx-auto">
@@ -318,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 6: Featured Solutions */}
+      {/* SECTION 4: Featured Solutions */}
       <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-4 max-w-3xl mx-auto">
@@ -365,7 +262,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 7: Industries We Serve */}
+      {/* SECTION 5: Industries We Serve */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-4 max-w-3xl mx-auto">
@@ -397,7 +294,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 9: Why Choose M2P Nexus */}
+      {/* SECTION 6: Why Choose M2P Nexus */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-4 max-w-3xl mx-auto">
@@ -436,7 +333,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 10: Call To Action */}
+      {/* SECTION 7: Call To Action */}
       <section className="bg-brand-primary text-white py-16 md:py-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/40 to-transparent pointer-events-none"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
