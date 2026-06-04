@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Smartphone, Award, Briefcase, Code, BookOpen, ExternalLink } from 'lucide-react';
+import { Mail, Smartphone, Award, Briefcase, Code, BookOpen, ExternalLink, CheckCircle } from 'lucide-react';
 
 const Linkedin = ({ className }) => (
   <svg
@@ -97,19 +97,101 @@ export default function Founder() {
       </section>
 
       {/* Founder Biography */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-6">
-          <h2 className="text-3xl font-extrabold text-brand-primary font-heading">Professional Biography</h2>
-          <div className="space-y-4 text-base text-brand-text leading-relaxed">
-            <p>
-              Maruthu Pandi PT is the founder and directing force of M2P Nexus. Over his professional career, he has successfully served as lead developer, database architect, and virtual CTO for retail traders, agro-logistics networks, and heavy manufacturing factories.
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border text-left">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <h2 className="text-3xl font-extrabold text-brand-primary font-heading border-b border-brand-border pb-4">
+            Our Story & Leadership Message
+          </h2>
+          
+          <div className="space-y-6 text-base text-brand-text leading-relaxed">
+            <p className="text-lg font-bold text-brand-primary">
+              I am Maruthu Pandi PT, Founder & Director of M2P Nexus.
             </p>
+            
             <p>
-              Before establishing M2P Nexus, Maruthu designed and maintained core enterprise systems written in .NET and Node.js. His primary engineering interest is in normalizing raw physical operations—such as weighbridge metrics, steel scrap calculations, and commissions—into reliable, secure database structures that prevent data leakage and loss of inventory.
+              With over 14 years of experience in software engineering, enterprise application development, digital transformation, and technology leadership, I have had the opportunity to work with organizations across diverse industries, helping them solve complex business challenges through technology.
             </p>
+            
             <p>
-              Believing that regional businesses are often poorly supported by traditional, generic SaaS software, he focuses on custom integrations. His solutions are built with high-quality codes, local offline states, and bilingual interfaces (Tamil & English) so that warehouse operators and office staffs can adopt software with zero training issues.
+              Throughout my career, I have collaborated closely with business leaders, stakeholders, and global clients to deliver scalable software solutions that improve operational efficiency, accelerate digital transformation, and support sustainable growth. I was also privileged to work onsite in Japan, working directly with international clients and gaining valuable insight into global business practices, customer expectations, and technology delivery standards.
             </p>
+            
+            <div className="bg-brand-section border-l-4 border-brand-secondary p-5 rounded-r-lg italic font-medium text-brand-secondary my-6">
+              "One insight became increasingly clear over the years: business success requires more than technology alone. Organizations need the right technology, the right people, and the right growth strategies working together."
+            </div>
+            
+            <p className="font-bold text-brand-primary">
+              This realization became the foundation of M2P Nexus.
+            </p>
+            
+            <p>
+              M2P Nexus was established through the combined expertise of its founding team. While my focus has been on technology, software solutions, automation, and digital transformation, our Co-Founder brings extensive experience in talent acquisition, workforce solutions, client engagement, and business relationship management. Having successfully supported recruitment initiatives and worked closely with clients across various sectors, she plays a vital role in helping organizations build capable teams and strengthen their growth strategies.
+            </p>
+            
+            <p>
+              Together, we created M2P Nexus to bridge the gap between business needs, technology innovation, and workforce excellence.
+            </p>
+
+            <div className="space-y-4 pt-4">
+              <p className="font-bold text-brand-primary text-lg font-heading">
+                Today, we help organizations through:
+              </p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-medium text-brand-primary">
+                {[
+                  'Custom Software Development and Digital Solutions',
+                  'AI, Automation, and Business Process Optimization',
+                  'Technology Consulting and Digital Transformation Services',
+                  'Recruitment, Talent Acquisition, and Workforce Solutions',
+                  'Client Acquisition and Business Growth Support',
+                  'Startup Enablement and Business Advisory Services'
+                ].map((item, idx) => (
+                  <li key={idx} className="bg-brand-section border border-brand-border p-3.5 rounded-lg flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-brand-accent shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p>
+              Whether supporting startups, SMEs, or established enterprises, our goal remains the same: delivering practical, scalable, and results-driven solutions that create measurable business value.
+            </p>
+            
+            <p>
+              We believe sustainable growth happens when technology, talent, and strategy work together.
+            </p>
+            
+            <div className="bg-brand-secondary/5 border border-brand-secondary/20 p-6 rounded-xl text-center space-y-2 my-6">
+              <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">Our Mission</span>
+              <p className="text-lg font-extrabold text-brand-primary font-heading italic">
+                "Our mission is simple: help organizations innovate faster, build stronger teams, operate smarter, and grow sustainably."
+              </p>
+            </div>
+            
+            <p>
+              We are committed to becoming a trusted partner in our clients' growth journey—transforming ideas into opportunities and challenges into success stories.
+            </p>
+            
+            <div className="pt-6 border-t border-brand-border text-center space-y-2">
+              <h3 className="text-xl md:text-2xl font-extrabold text-brand-accent font-heading tracking-wide uppercase">
+                Making Innovation Accessible. Enabling Growth Everywhere.
+              </h3>
+            </div>
+
+            {/* Signature Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-brand-border/60">
+              <div className="space-y-1">
+                <p className="text-lg font-extrabold text-brand-primary font-heading">Maruthu Pandi PT</p>
+                <p className="text-xs text-brand-accent font-semibold tracking-wider uppercase font-heading">Founder & Director</p>
+              </div>
+              <div className="space-y-1 md:text-right">
+                <p className="text-lg font-extrabold text-brand-primary font-heading">Priyanka M</p>
+                <p className="text-xs text-brand-accent font-semibold tracking-wider uppercase font-heading">Co-Founder</p>
+              </div>
+              <div className="md:col-span-2 text-center pt-4 text-xs text-slate-400 font-bold tracking-widest font-heading uppercase">
+                M2P Nexus
+              </div>
+            </div>
           </div>
         </div>
       </section>
