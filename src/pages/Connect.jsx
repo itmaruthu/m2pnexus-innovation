@@ -73,9 +73,6 @@ export default function Connect() {
             <p className="text-xs text-brand-accent font-semibold tracking-wider uppercase font-heading">
               Founder & Director
             </p>
-            <p className="text-[11px] text-slate-400 font-medium">
-              14+ Years Technology Leadership
-            </p>
           </div>
 
           {/* Button panel */}

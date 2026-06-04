@@ -194,8 +194,7 @@ export default function Home() {
       {/* SECTION 2: Trust Bar */}
       <section className="py-12 bg-brand-section border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatCounter target="14" suffix="+" label="Years Experience" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <StatCounter target="100" suffix="%" label="Enterprise Technology Expertise" />
             <StatCounter target="100" suffix="%" label="AI-Powered Innovation" />
             <StatCounter target="100" suffix="%" label="Startup-Friendly Solutions" />
@@ -422,9 +421,6 @@ export default function Home() {
               <div className="space-y-1">
                 <h2 className="text-3xl font-extrabold text-brand-primary font-heading">Maruthu Pandi PT</h2>
                 <p className="text-lg font-semibold text-brand-secondary font-heading">Founder & Director</p>
-                <div className="inline-flex items-center gap-1.5 text-xs text-brand-accent font-bold uppercase tracking-wider font-heading mt-1">
-                  <span>14+ Years Technology Experience</span>
-                </div>
               </div>
               <p className="text-base text-brand-text leading-relaxed">
                 Maruthu Pandi PT is a seasoned technology director and architect specializing in designing custom ERP systems, building resilient AI integrations, and launching scalable software structures. He has supported manufacturers, traders, and agricultural networks for over a decade.
