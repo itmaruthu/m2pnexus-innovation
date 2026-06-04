@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Shield, Eye, Target, Compass, Sparkles, HeartHandshake } from 'lucide-react';
 import Seo from '../components/Seo';
-import founderPhoto from '../assets/founder_photo.png';
+import founderPhoto from '../assets/founder_photo.jpg';
 
 export default function About() {
   const navigate = useNavigate();

@@ -36,7 +36,7 @@ const Linkedin = ({ className }) => (
 
 import StatCounter from '../components/StatCounter';
 import Seo from '../components/Seo';
-import founderPhoto from '../assets/founder_photo.png';
+import founderPhoto from '../assets/founder_photo.jpg';
 
 // Framer Motion Animation Variants
 const fadeInUp = {

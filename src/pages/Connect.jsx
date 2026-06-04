@@ -19,7 +19,7 @@ const Linkedin = ({ className }) => (
   </svg>
 );
 import Seo from '../components/Seo';
-import founderPhoto from '../assets/founder_photo.png';
+import founderPhoto from '../assets/founder_photo.jpg';
 
 export default function Connect() {
   const navigate = useNavigate();
