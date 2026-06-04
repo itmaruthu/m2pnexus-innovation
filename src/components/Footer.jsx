@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
+import m2pLogo from '../assets/m2p_nexus_logo.png';
 
 const Linkedin = ({ className }) => (
   <svg
@@ -33,11 +34,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Column 1: Company Info & Links */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center bg-brand-secondary rounded text-white font-bold text-lg">
-                M
+            <div className="flex items-center">
+              <div className="bg-white rounded-xl px-3 py-2 shadow-md inline-flex items-center">
+                <img
+                  src={m2pLogo}
+                  alt="M2P Nexus Logo"
+                  className="h-[48px] w-auto object-contain"
+                />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-heading">M2P NEXUS</span>
             </div>
             <p className="text-sm text-slate-400 max-w-sm mt-2">
               Bridging the gap between traditional businesses and modern technology through AI-powered solutions, workforce excellence, and digital transformation.

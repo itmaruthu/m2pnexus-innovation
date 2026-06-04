@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import m2pLogo from '../assets/m2p_nexus_logo.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,15 +51,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[70px]">
           {/* LEFT: Logo */}
-          <Link to="/" className="flex items-center gap-3 select-none h-[70px] cursor-pointer">
-            <div className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-brand-secondary to-brand-primary rounded-lg text-white font-bold text-2xl shadow-md border border-slate-700">
-              <span className="font-heading">M</span>
-              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-brand-accent rounded-full border-2 border-white flex items-center justify-center text-[10px] font-extrabold text-white">N</div>
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xl font-extrabold tracking-tight text-brand-primary font-heading leading-none">M2P NEXUS</span>
-              <span className="text-[9px] font-bold text-brand-accent tracking-widest font-heading mt-1.5 uppercase">வேரிலிருந்து வெற்றிவரை</span>
-            </div>
+          <Link to="/" className="flex items-center select-none h-[70px] cursor-pointer">
+            <img
+              src={m2pLogo}
+              alt="M2P Nexus Logo"
+              className="h-[64px] w-auto object-contain drop-shadow-sm"
+            />
           </Link>
 
           {/* CENTER: Navigation Links */}
@@ -127,11 +125,12 @@ export default function Header() {
           {/* Drawer Content */}
           <div className="relative flex-1 flex flex-col max-w-xs w-full bg-white pt-5 pb-4 shadow-xl z-10 transition-transform duration-300">
             <div className="flex items-center justify-between px-4 pb-4 border-b border-brand-border">
-              <Link to="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-                <div className="w-9 h-9 flex items-center justify-center bg-brand-secondary rounded-lg text-white font-bold text-lg">
-                  M
-                </div>
-                <span className="text-lg font-bold text-brand-primary">M2P NEXUS</span>
+              <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+                <img
+                  src={m2pLogo}
+                  alt="M2P Nexus Logo"
+                  className="h-[48px] w-auto object-contain"
+                />
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}

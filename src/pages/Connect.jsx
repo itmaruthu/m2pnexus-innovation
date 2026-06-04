@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Phone, Mail, FileText, Globe, ArrowRight } from 'lucide-react';
+import m2pLogo from '../assets/m2p_nexus_logo.png';
 
 const Linkedin = ({ className }) => (
   <svg
@@ -38,11 +39,13 @@ export default function Connect() {
         {/* Decorative Grid Line Panel */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
 
-        {/* Top Spacer / Tagline */}
+        {/* Top Spacer / Logo */}
         <div className="z-10 text-center pt-2">
-          <p className="text-[10px] text-brand-accent font-extrabold uppercase tracking-widest font-heading">
-            M2P Nexus
-          </p>
+          <img
+            src={m2pLogo}
+            alt="M2P Nexus"
+            className="h-[44px] w-auto object-contain brightness-0 invert mx-auto"
+          />
         </div>
 
         {/* Core Card Section */}
@@ -157,10 +160,12 @@ export default function Connect() {
             Visit Full Website
           </button>
           
-          <div className="text-center space-y-0.5">
-            <p className="text-[9px] text-slate-500 font-semibold tracking-widest uppercase">
-              வேரிலிருந்து வெற்றிவரை
-            </p>
+          <div className="text-center space-y-1">
+            <img
+              src={m2pLogo}
+              alt="M2P Nexus"
+              className="h-[32px] w-auto object-contain brightness-0 invert opacity-40 mx-auto"
+            />
             <p className="text-[9px] text-slate-600 font-medium">
               © {new Date().getFullYear()} M2P Nexus
             </p>
