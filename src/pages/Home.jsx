@@ -7,11 +7,9 @@ import {
   Users,
   TrendingUp,
   Factory,
-  Wrench,
   Building2,
   Leaf,
   ShoppingBag,
-  HeartPulse,
   GraduationCap,
   Truck,
   Rocket,
@@ -95,14 +93,12 @@ export default function Home() {
 
   const industriesWeServe = [
     { title: 'Manufacturing', icon: Factory },
-    { title: 'Engineering', icon: Wrench },
     { title: 'Construction', icon: Building2 },
     { title: 'Agriculture', icon: Leaf },
-    { title: 'Retail', icon: ShoppingBag },
-    { title: 'Healthcare', icon: HeartPulse },
-    { title: 'Education', icon: GraduationCap },
+    { title: 'Startups & SMEs', icon: Rocket },
+    { title: 'EDTECH', icon: GraduationCap },
     { title: 'Logistics', icon: Truck },
-    { title: 'Startups & SMEs', icon: Rocket }
+    { title: 'Retail', icon: ShoppingBag },
   ];
 
   return (
