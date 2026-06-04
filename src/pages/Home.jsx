@@ -401,55 +401,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 8: Founder Highlight */}
-      <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Founder Photo */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-lg">
-                <img
-                  src={founderPhoto}
-                  alt="Maruthu Pandi PT"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Right: Info */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="space-y-1">
-                <h2 className="text-3xl font-extrabold text-brand-primary font-heading">Maruthu Pandi PT</h2>
-                <p className="text-lg font-semibold text-brand-secondary font-heading">Founder & Director</p>
-              </div>
-              <p className="text-base text-brand-text leading-relaxed">
-                Maruthu Pandi PT is a seasoned technology director and architect specializing in designing custom ERP systems, building resilient AI integrations, and launching scalable software structures. He has supported manufacturers, traders, and agricultural networks for over a decade.
-              </p>
-              <p className="text-base text-brand-text leading-relaxed">
-                Recognizing that traditional regional companies are often locked out of enterprise software due to price and complexity, he established M2P Nexus to deliver corporate-grade solutions configured for local business structures, ensuring long-term success from the root up.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-secondary text-white hover:bg-brand-primary px-6 py-3 rounded-md font-semibold text-sm transition-all flex items-center gap-2 shadow-xs hover:shadow-md cursor-pointer"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  Connect on LinkedIn
-                </a>
-                <button
-                  onClick={() => navigate('/founder')}
-                  className="border border-brand-border text-brand-primary hover:bg-brand-section bg-white px-6 py-3 rounded-md font-semibold text-sm transition-colors cursor-pointer"
-                >
-                  Read Founder Profile
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 9: Why Choose M2P Nexus */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
