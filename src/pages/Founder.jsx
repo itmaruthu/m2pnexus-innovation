@@ -38,7 +38,7 @@ export default function Founder() {
     <>
       <Seo
         title="Meet the Founder - Maruthu Pandi PT"
-        description="Read the profile of Maruthu Pandi PT, Founder & Director of M2P Nexus. Explore his 14+ years experience in technology leadership, React, .NET, and AI."
+        description="Read the profile of Maruthu Pandi PT, Founder & Director of M2P Nexus. Explore his experience in technology leadership, React, .NET, and AI."
       />
 
       {/* Hero Section */}
@@ -66,7 +66,7 @@ export default function Founder() {
               </div>
 
               <p className="text-lg text-slate-300 leading-relaxed max-w-3xl">
-                A seasoned technology director and database architect with over 14 years of professional experience building high-security corporate systems, custom ERPs, and automated workflows.
+                A seasoned technology director and database architect with extensive professional experience building high-security corporate systems, custom ERPs, and automated workflows.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -102,7 +102,7 @@ export default function Founder() {
           <h2 className="text-3xl font-extrabold text-brand-primary font-heading">Professional Biography</h2>
           <div className="space-y-4 text-base text-brand-text leading-relaxed">
             <p>
-              Maruthu Pandi PT is the founder and directing force of M2P Nexus. Over his 14+ years career, he has successfully served as lead developer, database architect, and virtual CTO for retail traders, agro-logistics networks, and heavy manufacturing factories.
+              Maruthu Pandi PT is the founder and directing force of M2P Nexus. Over his professional career, he has successfully served as lead developer, database architect, and virtual CTO for retail traders, agro-logistics networks, and heavy manufacturing factories.
             </p>
             <p>
               Before establishing M2P Nexus, Maruthu designed and maintained core enterprise systems written in .NET and Node.js. His primary engineering interest is in normalizing raw physical operations—such as weighbridge metrics, steel scrap calculations, and commissions—into reliable, secure database structures that prevent data leakage and loss of inventory.
