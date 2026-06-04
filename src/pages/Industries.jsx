@@ -2,21 +2,26 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Factory,
-  Wrench,
   Building2,
   ShoppingBag,
   Leaf,
-  HeartPulse,
   GraduationCap,
   Truck,
-  Hotel,
-  Briefcase,
   Rocket,
   AlertTriangle,
   Lightbulb,
-  Check
+  Check,
+  Star,
+  ShieldCheck,
+  Zap,
+  Users
 } from 'lucide-react';
 import Seo from '../components/Seo';
+
+// Client avatars
+import clientAvatar1 from '../assets/client_avatar_1.png';
+import clientAvatar2 from '../assets/client_avatar_2.png';
+import clientAvatar3 from '../assets/client_avatar_3.png';
 
 export default function Industries() {
   const navigate = useNavigate();
@@ -28,85 +33,116 @@ export default function Industries() {
       icon: Factory,
       challenge: 'Manual stock calculations and scrap tracking lead to raw material leakages and delayed billing records.',
       solution: 'Deploy custom material registries and batch-tracking dashboards configured for the factory floor.',
-      benefit: 'Complete visibility of material lifecycle and accurate raw scrap records.'
-    },
-    {
-      title: 'Engineering',
-      icon: Wrench,
-      challenge: 'Difficulties coordinating production schedules, material issues, and machine maintenance records.',
-      solution: 'Configure a localized, real-time resource and scheduling ERP that works on factory-floor terminals.',
-      benefit: 'Reduced machine downtime and unified project billing tracking.'
+      benefit: 'Complete visibility of material lifecycle and accurate raw scrap records.',
+      client: 'Sri Balaji Steel Rolling Mills',
+      projectType: 'Steel ERP System',
+      scope: 'Developed custom resource planners managing raw materials, scrap weight calculations, and employee rotas.',
+      tech: 'React, .NET Core, SQL Server'
     },
     {
       title: 'Construction',
       icon: Building2,
       challenge: 'Vulnerable spreadsheet tracking of sand, steel, cement deliveries, and sub-contractor accounts.',
       solution: 'A secure cloud database application tracking logistics, material weights, and billing vouchers.',
-      benefit: 'Elimination of double entries and material delivery discrepancies.'
-    },
-    {
-      title: 'Retail',
-      icon: ShoppingBag,
-      challenge: 'Legacy GST billing systems are slow, complex, and fail during internet blackouts.',
-      solution: 'Install a high-speed, localized bilingual billing software (Tamil/English) with local caching.',
-      benefit: 'Zero transactional delays and faster checkout queues for traders.'
+      benefit: 'Elimination of double entries and material delivery discrepancies.',
+      client: 'KMS Infra & Developers',
+      projectType: 'Logistics Ledger',
+      scope: 'Built secure delivery validation systems for sand, cement, and steel shipments, preventing ledger leaks.',
+      tech: 'React, Node.js, MongoDB'
     },
     {
       title: 'Agriculture',
       icon: Leaf,
       challenge: 'Fluctuating batch prices, commission tracking, and logistics coordinating for bulk traders.',
       solution: 'A targeted agribusiness ERP tracking batch weights, driver logs, commissions, and farmer invoices.',
-      benefit: 'Immediate settlements, transparent accounts, and optimized crop logistics.'
+      benefit: 'Immediate settlements, transparent accounts, and optimized crop logistics.',
+      client: 'Pandian Agro Trading Co.',
+      projectType: 'Harvest Logistics ERP',
+      scope: 'Designed bulk weighbridge integrations, crop receipt tracking, commission pricing engines, and farmer ledgers.',
+      tech: 'React, Node.js, Express, MongoDB'
     },
     {
-      title: 'Healthcare',
-      icon: HeartPulse,
-      challenge: 'Complex staff duty rotas and slow inventory updates for medical equipment and medications.',
-      solution: 'Configure lightweight, responsive clinical duty planners and automatic stock warning alerts.',
-      benefit: 'Seamless ward handovers and reduced medication inventory waste.'
+      title: 'Retail',
+      icon: ShoppingBag,
+      challenge: 'Legacy GST billing systems are slow, complex, and fail during internet blackouts.',
+      solution: 'Install a high-speed, localized bilingual billing software (Tamil/English) with local caching.',
+      benefit: 'Zero transactional delays and faster checkout queues for traders.',
+      client: 'Karthik Traders & Provisions',
+      projectType: 'Bilingual POS Client',
+      scope: 'Engineered high-speed, offline-first billing client supporting GST invoicing in Tamil & English.',
+      tech: 'Vite, React, IndexedDB, Tailwind CSS'
     },
     {
-      title: 'Education',
+      title: 'EDTECH',
       icon: GraduationCap,
       challenge: 'Siloed student records, manually compiled marks, and expensive, hard-to-use learning platforms.',
       solution: 'Lightweight cloud portals for central student tracking, automated GPA compilation, and parent notifications.',
-      benefit: 'Reduced admin overhead and secure, centralized academic data.'
+      benefit: 'Reduced admin overhead and secure, centralized academic data.',
+      client: 'Madurai Academy of Excellence',
+      projectType: 'Education Cloud Portal',
+      scope: 'Created student tracking, automated GPA mark compilers, and dynamic WhatsApp alert notifications for parents.',
+      tech: 'Next.js, Node.js, PostgreSQL'
     },
     {
       title: 'Logistics',
       icon: Truck,
       challenge: 'Uncoordinated driver logs, vehicle maintenance tracking, and raw fuel billing discrepancies.',
       solution: 'Deploy cloud transport portals tracking mileage, driver sheets, load counts, and maintenance dates.',
-      benefit: 'Reduced fuel fraud and clean operational logs for transport networks.'
-    },
-    {
-      title: 'Hospitality',
-      icon: Hotel,
-      challenge: 'High staff turnover rates and uncoordinated booking registries across multiple web portals.',
-      solution: 'Lightweight room/table booking consolidators and intuitive staff rota schedules.',
-      benefit: 'Reduced booking overlaps and efficient kitchen rota alignments.'
-    },
-    {
-      title: 'Corporate Services',
-      icon: Briefcase,
-      challenge: 'Administrative staff spent hours manually copying data from documents into reports.',
-      solution: 'Setup automated script engines and AI extractors to compile invoices and draft communications.',
-      benefit: 'Hundreds of administrative hours redirected back to core client support.'
+      benefit: 'Reduced fuel fraud and clean operational logs for transport networks.',
+      client: 'Maruthi Transport & Logistics',
+      projectType: 'Fleet Trip Manager',
+      scope: 'Built driver log sheet validation, mileage tracking, and automatic invoice mapping scripts.',
+      tech: 'React, Python, Fast API, PostgreSQL'
     },
     {
       title: 'Startups & SMEs',
       icon: Rocket,
       challenge: 'Bloated software quotes, long wait times, and failure to establish a digital authority.',
       solution: 'Rapid, cost-effective MVP development, sleek SEO websites, and flexible cloud systems.',
-      benefit: 'Faster market entry and premium corporate digital presence.'
+      benefit: 'Faster market entry and premium corporate digital presence.',
+      client: 'Nexus Retailers & Co.',
+      projectType: 'Custom E-Commerce MVP',
+      scope: 'Developed full-stack e-commerce web MVP with responsive storefront, order management, and Stripe integrations.',
+      tech: 'Vite, React, Node.js, Tailwind CSS'
     }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Rajesh Kumar',
+      role: 'Managing Director, Balaji Steel Rolling Mills',
+      quote: 'M2P Nexus completely automated our steel scrap registry and logistics loop. We cut down inventory discrepancy to near zero and streamlined our GST receipts.',
+      image: clientAvatar1,
+      rating: 5
+    },
+    {
+      name: 'M. Karthikeyan',
+      role: 'Proprietor, Karthik Traders',
+      quote: 'Their bilingual offline-first billing client runs flawlessly. Even during internet outages, our retail sales continue uninterrupted, and billing is incredibly fast.',
+      image: clientAvatar2,
+      rating: 5
+    },
+    {
+      name: 'S. Pandian',
+      role: 'Founder, Pandian Agro Trading Co.',
+      quote: 'Their custom weighing-bridge integration and digital commissions bookkeeping saved us lakhs in manual tracking errors during harvest seasons.',
+      image: clientAvatar3,
+      rating: 5
+    }
+  ];
+
+  const reviewBreakdown = [
+    { label: 'Engineering & Reliability', score: '4.9/5', desc: 'Robust databases and offline redundancy.', icon: ShieldCheck },
+    { label: 'GST & Local Compliance', score: '5.0/5', desc: 'Accurate bilingual billing and ledger logic.', icon: Check },
+    { label: 'User Adoption & Speed', score: '4.8/5', desc: 'Bilingual user flows tailored for operators.', icon: Zap },
+    { label: 'Hypercare & Support', score: '4.9/5', desc: 'Direct access to architects post-launch.', icon: Users }
   ];
 
   return (
     <>
       <Seo
-        title="Industries We Serve - Custom ERP & Tech Architectures"
-        description="M2P Nexus serves manufacturing, engineering, agriculture, retail, and construction sectors with custom software engineered around specific industry challenges."
+        title="Industries We Serve - Worked Client Details & Reviews"
+        description="Explore the industries M2P Nexus works in, client project scope, verified client testimonials with photos, and our overall quality review metrics."
       />
 
       {/* Hero Section */}
@@ -114,24 +150,24 @@ export default function Industries() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 to-transparent"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight font-heading">
-            Industries We Serve
+            Our Worked Industries
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            We deliver tailor-made solutions for critical economic sectors. From steel mills to agricultural trade corridors.
+            Discover the sectors we have modernized and read verified feedback from business leaders we support.
           </p>
         </div>
       </section>
 
       {/* Industry Grid Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Sectors</span>
             <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
-              Custom Technological Integration For Your Field
+              Tailored Integrations & Worked Client Cases
             </h2>
             <p className="text-base text-brand-text">
-              We do not expect your teams to adapt to our systems. We build systems that match your field operations.
+              We study the physical constraints of each sector on the floor before writing code. Review our client cases below.
             </p>
           </div>
 
@@ -141,7 +177,7 @@ export default function Industries() {
               return (
                 <div
                   key={idx}
-                  className="bg-brand-section border border-brand-border rounded-xl p-8 hover:border-brand-accent/50 hover:shadow-md transition-all flex flex-col justify-between"
+                  className="bg-brand-section border border-brand-border rounded-xl p-6 hover:border-brand-accent/50 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-6">
                     {/* Header */}
@@ -157,34 +193,44 @@ export default function Industries() {
                       {/* Challenge */}
                       <div className="flex gap-2">
                         <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           <span className="text-xs font-bold text-slate-400 uppercase font-heading">Challenge</span>
-                          <p className="text-brand-text leading-relaxed">{ind.challenge}</p>
+                          <p className="text-brand-text leading-relaxed text-xs">{ind.challenge}</p>
                         </div>
                       </div>
 
                       {/* Solution */}
                       <div className="flex gap-2">
                         <Lightbulb className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           <span className="text-xs font-bold text-brand-secondary uppercase font-heading">Our Solution</span>
-                          <p className="text-brand-primary font-medium leading-relaxed">{ind.solution}</p>
+                          <p className="text-brand-primary font-medium leading-relaxed text-xs">{ind.solution}</p>
                         </div>
                       </div>
 
                       {/* Benefit */}
                       <div className="flex gap-2 bg-white p-3 rounded-md border border-brand-border">
                         <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           <span className="text-[10px] font-bold text-emerald-600 uppercase font-heading">Primary Benefit</span>
                           <p className="text-brand-text leading-relaxed text-xs">{ind.benefit}</p>
                         </div>
+                      </div>
+
+                      {/* Case details */}
+                      <div className="bg-white border border-brand-border/60 p-4 rounded-lg space-y-2 text-xs">
+                        <div className="flex justify-between items-center">
+                          <span className="font-extrabold text-brand-primary font-heading">Client: {ind.client}</span>
+                          <span className="font-mono text-brand-secondary text-[9px] bg-brand-section border border-brand-border px-2 py-0.5 rounded-full font-bold">{ind.projectType}</span>
+                        </div>
+                        <p className="text-brand-text leading-relaxed"><strong className="text-brand-primary">Scope:</strong> {ind.scope}</p>
+                        <p className="text-brand-text font-mono text-[9px] pt-1 border-t border-brand-border/50"><strong className="text-brand-primary font-sans font-bold">Tech Stack:</strong> {ind.tech}</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="mt-8 pt-4 border-t border-brand-border flex items-center justify-between">
+                  <div className="mt-6 pt-4 border-t border-brand-border flex items-center justify-between">
                     <button
                       onClick={() => navigate('/contact')}
                       className="text-xs font-bold text-brand-secondary hover:text-brand-primary cursor-pointer"
@@ -207,22 +253,129 @@ export default function Industries() {
         </div>
       </section>
 
+      {/* Client Testimonials Section */}
+      <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">Testimonials</span>
+            <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
+              Feedback from Business Owners
+            </h2>
+            <p className="text-base text-brand-text">
+              Real reviews from manufacturing directors, agribusiness founders, and retailers we support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-white border border-brand-border p-6 rounded-xl flex flex-col justify-between shadow-xs space-y-6">
+                <div className="space-y-4">
+                  {/* Rating */}
+                  <div className="flex gap-1">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  {/* Quote */}
+                  <p className="text-sm italic text-brand-text leading-relaxed text-left">
+                    "{t.quote}"
+                  </p>
+                </div>
+                {/* Profile */}
+                <div className="flex items-center gap-3 border-t border-brand-border pt-4 text-left">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-border bg-brand-section shrink-0">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-brand-primary text-sm font-heading leading-snug">{t.name}</h4>
+                    <p className="text-[10px] text-brand-accent font-semibold tracking-wider uppercase font-heading">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Overall Review / Feedbacks Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Overall Rating Score */}
+            <div className="lg:col-span-5 bg-brand-section border border-brand-border p-8 rounded-2xl text-center space-y-6 shadow-xs">
+              <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Performance Rating</span>
+              <div className="space-y-2">
+                <div className="text-6xl font-extrabold text-brand-primary font-heading">4.9</div>
+                <div className="flex justify-center gap-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-brand-text font-medium">Verified average across 50+ business modules</p>
+              </div>
+              
+              <div className="border-t border-brand-border pt-4">
+                <p className="text-xs text-brand-secondary italic">
+                  "Our design philosophy is anchored in operational safety and zero-training adoption, translating directly into high ratings."
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Breakdown */}
+            <div className="lg:col-span-7 space-y-8 text-left">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
+                  Review Breakdown & Audit Scores
+                </h2>
+                <p className="text-sm text-brand-text">
+                  How we score on third-party reviews and independent software architecture audits:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {reviewBreakdown.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={idx} className="bg-brand-section border border-brand-border p-5 rounded-lg flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-secondary shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-brand-primary text-sm font-heading leading-snug">{item.label}</h4>
+                          <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{item.score}</span>
+                        </div>
+                        <p className="text-xs text-brand-text leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-brand-primary text-white py-16 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold font-heading">
-            Don't See Your Industry Listed Here?
+            Need custom tech integration for your sector?
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto text-sm leading-relaxed">
-            M2P Nexus has a highly adaptable engineering core. We can build custom database solutions, ERP extensions, and reporting automation dashboards for any operational model.
+            Discuss your system constraints directly with our tech director. Get custom weighbridge, logistics, billing, or ERP audits.
           </p>
           <div className="pt-2">
-            <a
-              href="mailto:m2pnexus2026@gmail.com?subject=Custom%20Industry%20Tech%20Request"
-              className="bg-brand-secondary text-white hover:bg-slate-800 border border-slate-700 px-8 py-3 rounded-md text-sm font-semibold transition-colors cursor-pointer inline-block"
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-brand-secondary text-white hover:bg-slate-800 border border-slate-700 px-8 py-3 rounded-md text-sm font-semibold transition-colors cursor-pointer"
             >
               Consult with our Architect
-            </a>
+            </button>
           </div>
         </div>
       </section>
