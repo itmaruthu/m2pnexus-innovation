@@ -195,9 +195,9 @@ export default function Home() {
       <section className="py-12 bg-brand-section border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <StatCounter target="100" suffix="%" label="Enterprise Technology Expertise" />
-            <StatCounter target="100" suffix="%" label="AI-Powered Innovation" />
-            <StatCounter target="100" suffix="%" label="Startup-Friendly Solutions" />
+            <StatCounter target={50} suffix="+" label="Projects Delivered" />
+            <StatCounter target={9} suffix="+" label="Industries Served" />
+            <StatCounter target={5} suffix="+" label="ERP Systems Built" />
           </div>
         </div>
       </section>
