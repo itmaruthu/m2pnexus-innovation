@@ -70,14 +70,14 @@ export default function Home() {
   ];
 
   const industriesWeServe = [
-    { title: 'Manufacturing', icon: Factory, desc: 'Custom ERP systems for steel, textile, and heavy process industries.', span: 2 },
-    { title: 'Construction', icon: Building2, desc: 'Material logistics, billing, and site delivery management.', span: 1 },
-    { title: 'Agriculture', icon: Leaf, desc: 'Farm-to-market trading, weighbridge automation, and crop logistics.', span: 1 },
-    { title: 'Startups & SMEs', icon: Rocket, desc: 'Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.', span: 1 },
-    { title: 'EdTech', icon: GraduationCap, desc: 'Student portals, GPA automation, and real-time parent notifications.', span: 2 },
-    { title: 'Logistics', icon: Truck, desc: 'Fleet management, route tracking, driver logs, and fuel auditing.', span: 1 },
-    { title: 'Retail', icon: ShoppingBag, desc: 'Bilingual POS systems and offline-first GST billing solutions.', span: 2 },
-    { title: 'IT & Technology', icon: Cpu, desc: 'Tech staffing, offshore delivery teams, and strategic digital consulting.', span: 2 },
+    { title: 'Manufacturing', icon: Factory, desc: 'Custom ERP systems for steel, textile, and heavy process industries.', tag: 'ERP & Industrial', colSpan: 2, rowSpan: 2, variant: 'hero' },
+    { title: 'Construction', icon: Building2, desc: 'Material logistics, billing, and site delivery management.', colSpan: 1, rowSpan: 1, variant: 'standard' },
+    { title: 'Agriculture', icon: Leaf, desc: 'Farm-to-market trading, weighbridge automation, and crop logistics.', colSpan: 1, rowSpan: 1, variant: 'standard' },
+    { title: 'Startups & SMEs', icon: Rocket, desc: 'Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.', colSpan: 2, rowSpan: 1, variant: 'wide' },
+    { title: 'EdTech', icon: GraduationCap, desc: 'Student portals, GPA automation, and real-time parent notifications.', colSpan: 1, rowSpan: 1, variant: 'standard' },
+    { title: 'Logistics', icon: Truck, desc: 'Fleet management, route tracking, driver logs, and fuel auditing.', colSpan: 1, rowSpan: 1, variant: 'standard' },
+    { title: 'Retail', icon: ShoppingBag, desc: 'Bilingual POS systems and offline-first GST billing solutions.', colSpan: 2, rowSpan: 1, variant: 'wide' },
+    { title: 'IT & Technology', icon: Cpu, desc: 'Tech staffing, offshore delivery teams, and strategic digital consulting.', tag: 'Digital Transformation', colSpan: 4, rowSpan: 1, variant: 'banner' },
   ];
 
   return (
@@ -264,105 +264,214 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5: Industries We Serve — Premium Bento Grid */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-white via-slate-50/40 to-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* SECTION 5: Industries We Serve — Bento Grid 2.0 */}
+      <section className="py-24 md:py-32 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
-          {/* Section Header */}
+          {/* Header */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={staggerContainer}
-            className="text-center space-y-5 max-w-3xl mx-auto"
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
           >
-            <motion.span
-              variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-xs font-bold uppercase tracking-widest font-heading"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-              Market Verticals
-            </motion.span>
-            <motion.h2
-              variants={fadeInUp}
-              className="text-3xl md:text-5xl font-extrabold text-brand-primary tracking-tight font-heading leading-tight"
-            >
-              Industries We Serve
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              className="text-base sm:text-lg text-brand-text leading-relaxed max-w-2xl mx-auto"
-            >
-              We bring deep engineering expertise and business-first technology to the sectors that drive the real economy.
-            </motion.p>
+            <div className="space-y-4 max-w-2xl">
+              <motion.span
+                variants={fadeInUp}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-xs font-bold uppercase tracking-widest font-heading"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                Market Verticals
+              </motion.span>
+              <motion.h2
+                variants={fadeInUp}
+                className="text-3xl md:text-5xl font-extrabold text-brand-primary tracking-tight font-heading leading-tight"
+              >
+                Industries We Serve
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-base text-brand-text leading-relaxed">
+                Deep engineering expertise and business-first technology across the sectors that drive the real economy.
+              </motion.p>
+            </div>
+            <motion.div variants={fadeInUp}>
+              <button
+                onClick={() => navigate('/industries')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-brand-secondary/30 text-brand-secondary hover:bg-brand-secondary hover:text-white text-sm font-bold transition-all duration-300 cursor-pointer whitespace-nowrap"
+              >
+                All case studies <ChevronRight className="w-4 h-4" />
+              </button>
+            </motion.div>
           </motion.div>
 
-          {/* Bento Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto">
-            {industriesWeServe.map((ind, idx) => {
-              const Icon = ind.icon;
-              const isWide = ind.span === 2;
-              return (
-                <motion.button
-                  key={idx}
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-40px' }}
-                  onClick={() => navigate('/industries')}
-                  className={`group relative text-left cursor-pointer rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-brand-secondary/25 transition-all duration-300 overflow-hidden ${
-                    isWide ? 'lg:col-span-2' : 'lg:col-span-1'
-                  }`}
-                >
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-slate-50/80 pointer-events-none" />
-                  {/* Hover glow accent top */}
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Bento 2.0 Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-4">
 
-                  <div className={`relative z-10 ${ isWide ? 'flex flex-row items-center gap-6 p-7 sm:p-8' : 'flex flex-col gap-4 p-6' }`}>
-                    {/* Icon */}
-                    <div className={`shrink-0 flex items-center justify-center rounded-xl bg-brand-secondary/6 border border-brand-secondary/12 text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300 ${
-                      isWide ? 'w-14 h-14' : 'w-12 h-12'
-                    }`}>
-                      <Icon className={isWide ? 'w-6 h-6' : 'w-5 h-5'} />
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 space-y-1.5 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <h3 className={`font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors duration-200 ${
-                          isWide ? 'text-lg sm:text-xl' : 'text-base'
-                        }`}>
-                          {ind.title}
-                        </h3>
-                        <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
-                      </div>
-                      <p className={`text-brand-text leading-relaxed ${ isWide ? 'text-sm' : 'text-xs' }`}>
-                        {ind.desc}
-                      </p>
-                    </div>
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
-
-          {/* Footer CTA */}
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <button
+            {/* HERO: Manufacturing — 2 cols × 2 rows */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-primary text-white hover:bg-brand-secondary text-sm font-bold transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg"
+              className="group relative text-left cursor-pointer rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[280px] transition-all duration-500 hover:shadow-2xl hover:shadow-slate-900/20"
             >
-              View all client case studies
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </motion.div>
+              {/* Deep navy gradient bg */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#1a3056] to-[#1d4ed8]" />
+              {/* Dot pattern overlay */}
+              <div className="absolute inset-0 opacity-[0.06]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px'}} />
+              {/* Glow orb */}
+              <div className="absolute bottom-0 right-0 w-56 h-56 bg-blue-500/20 rounded-full blur-3xl" />
+              <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col justify-between p-8">
+                <div className="space-y-5">
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all duration-300">
+                    <Factory className="w-7 h-7" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-extrabold text-white font-heading leading-tight">Manufacturing</h3>
+                    <p className="text-sm text-blue-200/80 leading-relaxed max-w-xs">Custom ERP systems for steel, textile, and heavy process industries.</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-300/70 font-heading">ERP &amp; Industrial Systems</span>
+                  <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all">
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </motion.button>
+
+            {/* Construction — 1×1 */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <div className="flex-1 space-y-1.5">
+                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Construction</h3>
+                <p className="text-xs text-brand-text leading-relaxed">Material logistics, billing, and site delivery management.</p>
+              </div>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+            </motion.button>
+
+            {/* Agriculture — 1×1 */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <Leaf className="w-5 h-5" />
+              </div>
+              <div className="flex-1 space-y-1.5">
+                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Agriculture</h3>
+                <p className="text-xs text-brand-text leading-relaxed">Farm-to-market trading, weighbridge automation, and crop logistics.</p>
+              </div>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+            </motion.button>
+
+            {/* Startups & SMEs — 2×1 wide */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl border border-slate-200 shadow-sm p-7 sm:col-span-2 lg:col-span-2 flex flex-row items-center gap-6 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              style={{background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%)'}}
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-14 h-14 shrink-0 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <Rocket className="w-6 h-6" />
+              </div>
+              <div className="flex-1 min-w-0 space-y-1.5">
+                <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Startups &amp; SMEs</h3>
+                <p className="text-sm text-brand-text leading-relaxed">Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+            </motion.button>
+
+            {/* EdTech — 1×1 */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div className="flex-1 space-y-1.5">
+                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">EdTech</h3>
+                <p className="text-xs text-brand-text leading-relaxed">Student portals, GPA automation, and real-time parent notifications.</p>
+              </div>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+            </motion.button>
+
+            {/* Logistics — 1×1 */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <Truck className="w-5 h-5" />
+              </div>
+              <div className="flex-1 space-y-1.5">
+                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Logistics</h3>
+                <p className="text-xs text-brand-text leading-relaxed">Fleet management, route tracking, driver logs, and fuel auditing.</p>
+              </div>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+            </motion.button>
+
+            {/* Retail — 2×1 wide */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl border border-slate-200 shadow-sm p-7 sm:col-span-2 lg:col-span-2 flex flex-row items-center gap-6 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              style={{background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%)'}}
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="w-14 h-14 shrink-0 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                <ShoppingBag className="w-6 h-6" />
+              </div>
+              <div className="flex-1 min-w-0 space-y-1.5">
+                <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Retail</h3>
+                <p className="text-sm text-brand-text leading-relaxed">Bilingual POS systems and offline-first GST billing solutions.</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+            </motion.button>
+
+            {/* IT & Technology — Full-width banner */}
+            <motion.button
+              variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              onClick={() => navigate('/industries')}
+              className="group relative text-left cursor-pointer rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-4 flex flex-row items-center gap-8 p-7 sm:p-8 border border-slate-200 hover:border-brand-secondary/30 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              style={{background: 'linear-gradient(100deg, #f0f4ff 0%, #ffffff 40%, #f8fafc 100%)'}}
+            >
+              {/* Left accent bar */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-secondary via-brand-accent to-brand-secondary/30 rounded-l-2xl" />
+              {/* Icon */}
+              <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-brand-secondary to-slate-700 flex items-center justify-center text-white shadow-lg group-hover:shadow-brand-secondary/30 group-hover:scale-105 transition-all duration-300">
+                <Cpu className="w-7 h-7" />
+              </div>
+              {/* Content */}
+              <div className="flex-1 min-w-0 space-y-1.5">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">IT &amp; Technology</h3>
+                  <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-[10px] font-bold uppercase tracking-widest font-heading">Digital Transformation</span>
+                </div>
+                <p className="text-sm text-brand-text leading-relaxed">Tech staffing, offshore delivery teams, and strategic digital consulting for enterprise-scale transformation.</p>
+              </div>
+              {/* Arrow */}
+              <div className="shrink-0 w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:border-brand-secondary group-hover:text-brand-secondary group-hover:bg-brand-secondary/5 transition-all duration-300">
+                <ChevronRight className="w-5 h-5" />
+              </div>
+            </motion.button>
+
+          </div>
         </div>
       </section>
 
