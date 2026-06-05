@@ -1,148 +1,151 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
-import m2pLogo from '../assets/m2p_nexus_logo.png';
+import { Mail, ArrowUp } from 'lucide-react';
 
-const Linkedin = ({ className }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
+function Linkedin({ size = 16, className = "" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 
 export default function Footer() {
-  const location = useLocation();
+  const quickLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    { name: 'Solutions', href: '#solutions' },
+    { name: 'About', href: '#about' },
+    { name: 'Founders', href: '#founders' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
-  // Exclude footer render on the Connect page
-  if (location.pathname === '/connect') return null;
+  const services = [
+    { name: 'Web Development', href: '#services' },
+    { name: 'Custom Software', href: '#services' },
+    { name: 'Business Automation', href: '#services' },
+    { name: 'UI/UX Design', href: '#services' },
+    { name: 'Cloud Deployment', href: '#services' },
+  ];
 
-  const emailUrl = "mailto:m2pnexus2026@gmail.com?subject=Business%20Enquiry%20from%20Website";
+  const solutions = [
+    { name: 'Talent Acquisition', href: '#solutions' },
+    { name: 'Workforce Planning', href: '#solutions' },
+    { name: 'Fractional HR', href: '#solutions' },
+    { name: 'Founder Advisory', href: '#solutions' },
+  ];
 
   return (
-    <footer className="bg-brand-primary text-slate-300 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {/* Column 1: Company Info & Links */}
-          <div className="space-y-4">
-            <div className="flex items-center">
-              <div className="bg-white rounded-xl px-3 py-2 shadow-md inline-flex items-center">
-                <img
-                  src={m2pLogo}
-                  alt="M2P Nexus Logo"
-                  className="h-[48px] w-auto object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-sm text-slate-400 max-w-sm mt-2">
-              Bridging the gap between traditional businesses and modern technology through AI-powered solutions, workforce excellence, and digital transformation.
+    <footer className="relative bg-brand-midnight/90 border-t border-white/5 pt-16 pb-8">
+      {/* Tamil Pattern overlay */}
+      <div className="absolute inset-0 tamil-pattern-overlay pointer-events-none opacity-[0.015]" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
+          {/* Logo & Taglines */}
+          <div className="lg:col-span-5 text-left">
+            <a href="#home" className="text-xl font-bold tracking-wider text-white font-display">
+              M2P NEXUS
+            </a>
+            
+            <p className="text-xs text-gray-400 font-mono mt-4 max-w-sm leading-relaxed">
+              Technology Engineered for Growth.<br />
+              Human Capital Engineered with Intent.
             </p>
-            <div className="flex flex-col space-y-2 pt-2">
-              <span className="text-xs font-semibold uppercase text-brand-accent tracking-wider font-heading">Quick Links</span>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
-                <Link to="/founder" className="hover:text-white transition-colors">The Founder</Link>
-                <Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link>
-                <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
-              </div>
-            </div>
+
+            <p className="text-xs text-gray-500 mt-6 leading-relaxed max-w-sm">
+              Supporting startups and businesses by integrating robust codebase development, candidate pipeline acquisition, and automated growth workflows under one partnership.
+            </p>
           </div>
 
-          {/* Column 2: Services */}
-          <div>
-            <h3 className="text-white font-heading font-semibold text-base uppercase tracking-wider mb-4">Our Services</h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1">
-                  Technology Solutions
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1">
-                  AI & Automation
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1">
-                  Workforce Excellence
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1">
-                  Business Growth
-                </Link>
-              </li>
+          {/* Directory Column 1 */}
+          <div className="lg:col-span-2 text-left">
+            <h5 className="text-[10px] font-mono tracking-widest text-brand-purple font-bold uppercase mb-4">Quick Directory</h5>
+            <ul className="space-y-2.5 text-xs text-gray-400 font-medium">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-white transition-colors">{link.name}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3: Contact details */}
-          <div>
-            <h3 className="text-white font-heading font-semibold text-base uppercase tracking-wider mb-4">Contact Details</h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-2.5">
-                <Phone className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
-                <div className="flex flex-col">
-                  <a href="tel:+919944283316" className="hover:text-white transition-colors font-medium">
-                    +91 99442 83316
-                  </a>
-                  <a href="tel:+916380465605" className="hover:text-white transition-colors font-medium text-slate-400">
-                    +91 63804 65605
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-5 h-5 text-brand-accent shrink-0" />
-                <a href={emailUrl} className="hover:text-white transition-colors font-medium break-all">
-                  m2pnexus2026@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Linkedin className="w-5 h-5 text-brand-accent shrink-0" />
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors font-medium flex items-center gap-1"
-                >
-                  Connect on LinkedIn <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
-                <a
-                  href="https://maps.google.com/?q=Sithalangudi,Madurai,TamilNadu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors leading-relaxed"
-                >
-                  Sithalangudi, Madurai,<br />Tamil Nadu, India
-                </a>
-              </li>
+          {/* Directory Column 2 */}
+          <div className="lg:col-span-2 text-left">
+            <h5 className="text-[10px] font-mono tracking-widest text-brand-cyan font-bold uppercase mb-4">Core Services</h5>
+            <ul className="space-y-2.5 text-xs text-gray-400 font-medium">
+              {services.map((svc) => (
+                <li key={svc.name}>
+                  <a href={svc.href} className="hover:text-white transition-colors">{svc.name}</a>
+                </li>
+              ))}
             </ul>
+          </div>
+
+          {/* Directory Column 3 */}
+          <div className="lg:col-span-3 text-left">
+            <h5 className="text-[10px] font-mono tracking-widest text-brand-emerald font-bold uppercase mb-4">HR & Talent Solutions</h5>
+            <ul className="space-y-2.5 text-xs text-gray-400 font-medium mb-6">
+              {solutions.map((sol) => (
+                <li key={sol.name}>
+                  <a href={sol.href} className="hover:text-white transition-colors">{sol.name}</a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Social Connection */}
+            <div className="flex items-center space-x-3.5 pt-4 border-t border-white/5">
+              <a
+                href="https://www.linkedin.com/company/m2p-nexus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded bg-white/5 hover:bg-brand-purple/10 hover:text-brand-purple border border-white/5 transition-colors cursor-pointer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={14} />
+              </a>
+              <a
+                href="mailto:hrpriyaanka@gmail.com"
+                className="p-2 rounded bg-white/5 hover:bg-brand-cyan/10 hover:text-brand-cyan border border-white/5 transition-colors cursor-pointer"
+                aria-label="Email"
+              >
+                <Mail size={14} />
+              </a>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="ml-auto p-2 rounded bg-white/5 hover:bg-brand-emerald/10 hover:text-brand-emerald border border-white/5 transition-colors cursor-pointer text-gray-400"
+                aria-label="Scroll to top"
+              >
+                <ArrowUp size={14} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} M2P Nexus. All rights reserved.</p>
-          <div className="flex flex-col md:items-end gap-1">
-            <p className="font-semibold text-brand-accent tracking-widest uppercase">
-              வேரிலிருந்து வெற்றிவரை
-            </p>
-            <p className="text-[10px] text-slate-600 tracking-wider">
-              From Root to Success
-            </p>
-          </div>
+        {/* Small Legal text */}
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-mono">
+          <span>&copy; {new Date().getFullYear()} M2P Nexus. All rights reserved.</span>
+          <span className="mt-2 sm:mt-0">
+            Powered by <a href="#home" className="hover:text-white text-gray-400 font-semibold transition-colors">M2P Nexus</a>
+          </span>
         </div>
+
       </div>
     </footer>
   );
