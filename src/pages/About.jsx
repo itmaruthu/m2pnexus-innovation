@@ -20,7 +20,8 @@ import {
   Layers,
   Zap,
   Users2,
-  TrendingUp
+  TrendingUp,
+  Cpu
 } from 'lucide-react';
 import Seo from '../components/Seo';
 
@@ -57,7 +58,8 @@ export default function About() {
     { title: 'Startups & SMEs', desc: 'Accelerating growth and product launches with rapid MVP development and robust tech foundations.', icon: Rocket },
     { title: 'EDTECH Providers', desc: 'Enabling interactive cloud platforms, digital administration, and automated learning systems.', icon: GraduationCap },
     { title: 'Logistics Operators', desc: 'Integrating high-speed supply chain logistics, fleet logs, and digital dispatch.', icon: Truck },
-    { title: 'Retailers & Traders', desc: 'Integrating high-speed point of sale systems, inventory, and digital billing interfaces.', icon: ShoppingBag }
+    { title: 'Retailers & Traders', desc: 'Integrating high-speed point of sale systems, inventory, and digital billing interfaces.', icon: ShoppingBag },
+    { title: 'IT & Technology', desc: 'Providing custom API integrations, offshore engineering delivery teams, and strategic tech staffing.', icon: Cpu }
   ];
 
   const problemsWeSolve = [
