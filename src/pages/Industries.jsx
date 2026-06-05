@@ -15,8 +15,7 @@ import {
   Star,
   ShieldCheck,
   Zap,
-  Users,
-  ArrowRight
+  Users
 } from 'lucide-react';
 import Seo from '../components/Seo';
 
@@ -25,19 +24,14 @@ import clientAvatar1 from '../assets/client_avatar_1.png';
 import clientAvatar2 from '../assets/client_avatar_2.png';
 import clientAvatar3 from '../assets/client_avatar_3.png';
 
-// Framer Motion Animation Variants
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
 
 const staggerContainer = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
+  visible: { transition: { staggerChildren: 0.1 } }
 };
 
 export default function Industries() {
@@ -163,159 +157,117 @@ export default function Industries() {
       />
 
       {/* Hero Section */}
-      <section className="bg-brand-primary text-white py-20 md:py-28 text-center relative overflow-hidden">
-        {/* Subtle grid backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-secondary/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-
+      <section className="bg-brand-primary text-white py-16 md:py-24 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 to-transparent"></div>
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+          className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4"
         >
-          <motion.span
-            variants={fadeInUp}
-            className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-brand-accent text-xs font-semibold uppercase tracking-widest font-heading"
-          >
-            <Zap className="w-3.5 h-3.5 text-brand-accent" />
-            Market Verticals
-          </motion.span>
-          
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight"
+            className="text-4xl md:text-5xl font-extrabold tracking-tight font-heading"
           >
             Our Worked Industries
           </motion.h1>
-          
           <motion.p
             variants={fadeInUp}
-            className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
           >
             Discover the sectors we have modernized and read verified feedback from business leaders we support.
           </motion.p>
         </motion.div>
       </section>
 
-      {/* Industries We Serve Section (Glassmorphism & Staggered Layout) */}
-      <section className="relative py-24 bg-brand-primary text-white border-b border-brand-border overflow-hidden">
-        {/* Subtle grid backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
-        
-        {/* Glowing blur shapes */}
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+      {/* Industry Grid Section */}
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">
-              Sectors & Impact
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
-              Tailored Integrations & Worked Client Cases
+            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Sectors</span>
+            <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
+              Tailored Integrations &amp; Worked Client Cases
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-brand-text">
               We study the physical constraints of each sector on the floor before writing code. Review our client cases below.
             </p>
           </div>
 
-          {/* Staggered Flat-mapping Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industriesList.map((ind, idx) => {
               const Icon = ind.icon;
-              
-              // Offsets for staggered layout
-              let offsetClass = "";
-              if (idx % 3 === 1) offsetClass = "lg:translate-y-12";
-              if (idx % 3 === 2) offsetClass = "lg:translate-y-6";
-              
-              let mdOffsetClass = "";
-              if (idx % 2 === 1) mdOffsetClass = "md:translate-y-8";
-
               return (
                 <motion.div
                   key={idx}
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className={`flex flex-col justify-between rounded-3xl bg-slate-900/40 backdrop-blur-lg border border-slate-800/80 p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] hover:bg-slate-900/60 hover:border-blue-500/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_25px_rgba(59,130,246,0.15)] transition-all duration-500 hover:-translate-y-1 group ${offsetClass} ${mdOffsetClass}`}
+                  viewport={{ once: true, margin: '-80px' }}
+                  className="bg-brand-section border border-brand-border rounded-xl p-6 hover:border-brand-accent/50 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-6">
                     {/* Header */}
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.25)] group-hover:scale-105 transition-transform duration-300">
-                        <Icon className="w-5 h-5" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-white border border-brand-border rounded-lg flex items-center justify-center text-brand-secondary shadow-xs">
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-lg font-bold text-white font-heading group-hover:text-blue-400 transition-colors">
-                        {ind.title}
-                      </h3>
+                      <h3 className="text-lg font-bold text-brand-primary font-heading">{ind.title}</h3>
                     </div>
 
                     {/* Breakdown */}
-                    <div className="space-y-4 text-xs text-left">
+                    <div className="space-y-4 text-sm text-left">
                       {/* Challenge */}
-                      <div className="flex gap-3">
-                        <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                      <div className="flex gap-2">
+                        <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                         <div className="space-y-0.5">
-                          <span className="text-[10px] font-bold text-slate-400 uppercase font-heading tracking-wider">Challenge</span>
-                          <p className="text-slate-300 leading-relaxed font-normal">{ind.challenge}</p>
+                          <span className="text-xs font-bold text-slate-400 uppercase font-heading">Challenge</span>
+                          <p className="text-brand-text leading-relaxed text-xs">{ind.challenge}</p>
                         </div>
                       </div>
 
                       {/* Solution */}
-                      <div className="flex gap-3">
-                        <Lightbulb className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                      <div className="flex gap-2">
+                        <Lightbulb className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
                         <div className="space-y-0.5">
-                          <span className="text-[10px] font-bold text-blue-400 uppercase font-heading tracking-wider">Our Solution</span>
-                          <p className="text-slate-200 font-medium leading-relaxed">{ind.solution}</p>
+                          <span className="text-xs font-bold text-brand-secondary uppercase font-heading">Our Solution</span>
+                          <p className="text-brand-primary font-medium leading-relaxed text-xs">{ind.solution}</p>
                         </div>
                       </div>
 
                       {/* Benefit */}
-                      <div className="flex gap-3 bg-white/5 border border-white/5 p-3 rounded-2xl shadow-inner">
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="flex gap-2 bg-white p-3 rounded-md border border-brand-border">
+                        <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                         <div className="space-y-0.5">
-                          <span className="text-[9px] font-bold text-emerald-400 uppercase font-heading tracking-wider">Primary Benefit</span>
-                          <p className="text-slate-300 leading-relaxed font-normal">{ind.benefit}</p>
+                          <span className="text-[10px] font-bold text-emerald-600 uppercase font-heading">Primary Benefit</span>
+                          <p className="text-brand-text leading-relaxed text-xs">{ind.benefit}</p>
                         </div>
                       </div>
 
-                      {/* Case details (Sub-glass card) */}
-                      <div className="bg-slate-950/50 border border-slate-800/60 p-4 rounded-2xl space-y-2.5">
-                        <div className="flex justify-between items-center gap-2">
-                          <span className="font-bold text-white font-heading truncate">Client: {ind.client}</span>
-                          <span className="font-mono text-blue-400 text-[9px] bg-blue-950/45 border border-blue-900/60 px-2 py-0.5 rounded-full font-bold shrink-0">{ind.projectType}</span>
+                      {/* Case details */}
+                      <div className="bg-white border border-brand-border/60 p-4 rounded-lg space-y-2 text-xs">
+                        <div className="flex justify-between items-center">
+                          <span className="font-extrabold text-brand-primary font-heading">Client: {ind.client}</span>
+                          <span className="font-mono text-brand-secondary text-[9px] bg-brand-section border border-brand-border px-2 py-0.5 rounded-full font-bold">{ind.projectType}</span>
                         </div>
-                        <p className="text-slate-300 leading-relaxed">
-                          <strong className="text-white font-semibold">Scope:</strong> {ind.scope}
-                        </p>
-                        <div className="pt-2 border-t border-slate-800/50 flex flex-wrap gap-1.5 items-center">
-                          <span className="text-slate-400 font-sans font-bold mr-1">Tech:</span>
-                          {ind.tech.split(', ').map((techItem, techIdx) => (
-                            <span key={techIdx} className="font-mono text-[9px] text-slate-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded-md">
-                              {techItem}
-                            </span>
-                          ))}
-                        </div>
+                        <p className="text-brand-text leading-relaxed"><strong className="text-brand-primary">Scope:</strong> {ind.scope}</p>
+                        <p className="text-brand-text font-mono text-[9px] pt-1 border-t border-brand-border/50"><strong className="text-brand-primary font-sans font-bold">Tech Stack:</strong> {ind.tech}</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="mt-6 pt-4 border-t border-slate-800/50 flex items-center justify-between text-xs">
+                  <div className="mt-6 pt-4 border-t border-brand-border flex items-center justify-between">
                     <button
                       onClick={() => navigate('/contact')}
-                      className="font-bold text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1 group/btn"
+                      className="text-xs font-bold text-brand-secondary hover:text-brand-primary cursor-pointer"
                     >
-                      Enquire for Sector <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                      Enquire for this sector
                     </button>
                     <a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer"
+                      className="text-xs font-bold text-emerald-600 hover:text-emerald-500 cursor-pointer"
                     >
                       WhatsApp Us
                     </a>
@@ -328,11 +280,11 @@ export default function Industries() {
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="py-24 bg-brand-section border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section className="py-16 md:py-24 bg-brand-section border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Testimonials</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
+            <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">Testimonials</span>
+            <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
               Feedback from Business Owners
             </h2>
             <p className="text-base text-brand-text">
@@ -342,7 +294,7 @@ export default function Industries() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, idx) => (
-              <div key={idx} className="bg-white border border-brand-border p-8 rounded-3xl flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-300 space-y-6">
+              <div key={idx} className="bg-white border border-brand-border p-6 rounded-xl flex flex-col justify-between shadow-xs space-y-6">
                 <div className="space-y-4">
                   {/* Rating */}
                   <div className="flex gap-1">
@@ -356,7 +308,7 @@ export default function Industries() {
                   </p>
                 </div>
                 {/* Profile */}
-                <div className="flex items-center gap-4 border-t border-brand-border pt-6 text-left">
+                <div className="flex items-center gap-3 border-t border-brand-border pt-4 text-left">
                   <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-border bg-brand-section shrink-0">
                     <img
                       src={t.image}
@@ -376,11 +328,11 @@ export default function Industries() {
       </section>
 
       {/* Overall Review / Feedbacks Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Overall Rating Score */}
-            <div className="lg:col-span-5 bg-brand-section border border-brand-border p-8 rounded-3xl text-center space-y-6 shadow-xs">
+            <div className="lg:col-span-5 bg-brand-section border border-brand-border p-8 rounded-2xl text-center space-y-6 shadow-xs">
               <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Performance Rating</span>
               <div className="space-y-2">
                 <div className="text-6xl font-extrabold text-brand-primary font-heading">4.9</div>
@@ -391,7 +343,7 @@ export default function Industries() {
                 </div>
                 <p className="text-sm text-brand-text font-medium">Verified average across 50+ business modules</p>
               </div>
-              
+
               <div className="border-t border-brand-border pt-4">
                 <p className="text-xs text-brand-secondary italic">
                   "Our design philosophy is anchored in operational safety and zero-training adoption, translating directly into high ratings."
@@ -403,7 +355,7 @@ export default function Industries() {
             <div className="lg:col-span-7 space-y-8 text-left">
               <div className="space-y-2">
                 <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
-                  Review Breakdown & Audit Scores
+                  Review Breakdown &amp; Audit Scores
                 </h2>
                 <p className="text-sm text-brand-text">
                   How we score on third-party reviews and independent software architecture audits:
@@ -414,7 +366,7 @@ export default function Industries() {
                 {reviewBreakdown.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-brand-section border border-brand-border p-5 rounded-2xl flex gap-4 hover:border-slate-300 hover:shadow-xs transition-all duration-300">
+                    <div key={idx} className="bg-brand-section border border-brand-border p-5 rounded-lg flex gap-4">
                       <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-secondary shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
@@ -435,21 +387,18 @@ export default function Industries() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-brand-primary text-white py-20 text-center relative overflow-hidden">
-        {/* Subtle grid backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-white">
+      <section className="bg-brand-primary text-white py-16 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading">
             Need custom tech integration for your sector?
           </h2>
-          <p className="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 max-w-xl mx-auto text-sm leading-relaxed">
             Discuss your system constraints directly with our tech director. Get custom weighbridge, logistics, billing, or ERP audits.
           </p>
           <div className="pt-2">
             <button
               onClick={() => navigate('/contact')}
-              className="bg-brand-secondary hover:bg-slate-800 border border-slate-700 text-white px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+              className="bg-brand-secondary text-white hover:bg-slate-800 border border-slate-700 px-8 py-3 rounded-md text-sm font-semibold transition-colors cursor-pointer"
             >
               Consult with our Architect
             </button>
