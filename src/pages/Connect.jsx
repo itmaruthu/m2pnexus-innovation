@@ -156,7 +156,7 @@ export default function Connect() {
             <Globe className="w-4 h-4 text-brand-accent" />
             Visit Full Website
           </button>
-          
+
           <div className="text-center space-y-1">
             <img
               src={m2pLogo}

@@ -141,7 +141,7 @@ export default function Portfolio() {
 
       {/* Section Quick Anchor Links */}
       <div className="bg-brand-section border-b border-brand-border sticky top-16 z-20 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center gap-6 text-sm font-bold font-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold font-heading">
           <a href="#technology" className="text-brand-secondary hover:text-brand-primary flex items-center gap-1.5">
             <Laptop className="w-4 h-4 text-brand-accent" /> Technology Solutions
           </a>

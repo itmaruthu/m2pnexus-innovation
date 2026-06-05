@@ -18,11 +18,13 @@
 
 /* Base layer overrides */
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
   body {
     font-family: var(--font-sans);
     color: var(--color-brand-text);
     background-color: var(--color-brand-bg);
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
