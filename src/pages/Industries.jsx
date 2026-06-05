@@ -2,15 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Factory,
-  Building2,
-  ShoppingBag,
-  Leaf,
-  GraduationCap,
-  Truck,
-  Rocket,
-  AlertTriangle,
-  Lightbulb,
   Check,
   Star,
   ShieldCheck,
@@ -40,81 +31,58 @@ export default function Industries() {
 
   const industriesList = [
     {
+      index: '01',
       title: 'Manufacturing',
-      icon: Factory,
       challenge: 'Manual stock calculations and scrap tracking lead to raw material leakages and delayed billing records.',
       solution: 'Deploy custom material registries and batch-tracking dashboards configured for the factory floor.',
-      benefit: 'Complete visibility of material lifecycle and accurate raw scrap records.',
-      client: 'Sri Balaji Steel Rolling Mills',
-      projectType: 'Steel ERP System',
-      scope: 'Developed custom resource planners managing raw materials, scrap weight calculations, and employee rotas.',
-      tech: 'React, .NET Core, SQL Server'
+      impact: 'Achieved near-zero inventory discrepancies with automated scrap reconciliation.',
+      metricValue: '-99.8%',
+      metricLabel: 'Inventory Error Rate'
     },
     {
+      index: '02',
       title: 'Construction',
-      icon: Building2,
       challenge: 'Vulnerable spreadsheet tracking of sand, steel, cement deliveries, and sub-contractor accounts.',
       solution: 'A secure cloud database application tracking logistics, material weights, and billing vouchers.',
-      benefit: 'Elimination of double entries and material delivery discrepancies.',
-      client: 'KMS Infra & Developers',
-      projectType: 'Logistics Ledger',
-      scope: 'Built secure delivery validation systems for sand, cement, and steel shipments, preventing ledger leaks.',
-      tech: 'React, Node.js, MongoDB'
+      impact: 'Complete elimination of double billing and material shipping discrepancies.',
+      metricValue: '100%',
+      metricLabel: 'Audit Compliance'
     },
     {
+      index: '03',
       title: 'Agriculture',
-      icon: Leaf,
       challenge: 'Fluctuating batch prices, commission tracking, and logistics coordinating for bulk traders.',
       solution: 'A targeted agribusiness ERP tracking batch weights, driver logs, commissions, and farmer invoices.',
-      benefit: 'Immediate settlements, transparent accounts, and optimized crop logistics.',
-      client: 'Pandian Agro Trading Co.',
-      projectType: 'Harvest Logistics ERP',
-      scope: 'Designed bulk weighbridge integrations, crop receipt tracking, commission pricing engines, and farmer ledgers.',
-      tech: 'React, Node.js, Express, MongoDB'
+      impact: 'Accelerated post-harvest payment loops, ensuring immediate settlements for bulk traders.',
+      metricValue: '35%',
+      metricLabel: 'Faster Settlements'
     },
     {
+      index: '04',
       title: 'Startups & SMEs',
-      icon: Rocket,
       challenge: 'Bloated software quotes, long wait times, and failure to establish a digital authority.',
       solution: 'Rapid, cost-effective MVP development, sleek SEO websites, and flexible cloud systems.',
-      benefit: 'Faster market entry and premium corporate digital presence.',
-      client: 'Nexus Retailers & Co.',
-      projectType: 'Custom E-Commerce MVP',
-      scope: 'Developed full-stack e-commerce web MVP with responsive storefront, order management, and Stripe integrations.',
-      tech: 'Vite, React, Node.js, Tailwind CSS'
+      impact: 'Delivered production-ready MVPs within weeks instead of months, accelerating customer feedback.',
+      metricValue: '3x',
+      metricLabel: 'Time-to-Market Speed'
     },
     {
+      index: '05',
       title: 'EdTech',
-      icon: GraduationCap,
       challenge: 'Siloed student records, manually compiled marks, and expensive, hard-to-use learning platforms.',
       solution: 'Lightweight cloud portals for central student tracking, automated GPA compilation, and parent notifications.',
-      benefit: 'Reduced admin overhead and secure, centralized academic data.',
-      client: 'Madurai Academy of Excellence',
-      projectType: 'Education Cloud Portal',
-      scope: 'Created student tracking, automated GPA mark compilers, and dynamic WhatsApp alert notifications for parents.',
-      tech: 'Next.js, Node.js, PostgreSQL'
+      impact: 'Automated grades and attendance reporting, eliminating manual compilation workflows.',
+      metricValue: '92%',
+      metricLabel: 'Admin Overhead Saved'
     },
     {
+      index: '06',
       title: 'Logistics',
-      icon: Truck,
       challenge: 'Uncoordinated driver logs, vehicle maintenance tracking, and fuel billing discrepancies.',
       solution: 'Deploy cloud transport portals tracking mileage, driver sheets, load counts, and maintenance dates.',
-      benefit: 'Reduced fuel fraud and clean operational logs for transport networks.',
-      client: 'Maruthi Transport & Logistics',
-      projectType: 'Fleet Trip Manager',
-      scope: 'Built driver log sheet validation, mileage tracking, and automatic invoice mapping scripts.',
-      tech: 'React, Python, Fast API, PostgreSQL'
-    },
-    {
-      title: 'Retail',
-      icon: ShoppingBag,
-      challenge: 'Legacy GST billing systems are slow, complex, and fail during internet blackouts.',
-      solution: 'Install a high-speed, localized bilingual billing software (Tamil/English) with local caching.',
-      benefit: 'Zero transactional delays and faster checkout queues for traders.',
-      client: 'Karthik Traders & Provisions',
-      projectType: 'Bilingual POS Client',
-      scope: 'Engineered high-speed, offline-first billing client supporting GST invoicing in Tamil & English.',
-      tech: 'Vite, React, IndexedDB, Tailwind CSS'
+      impact: 'Mitigated fuel billing discrepancies using digital odometer verification and trip matching.',
+      metricValue: '15%',
+      metricLabel: 'Fuel Costs Saved'
     }
   ];
 
@@ -180,97 +148,83 @@ export default function Industries() {
         </motion.div>
       </section>
 
-      {/* Industry Grid Section */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Sectors</span>
-            <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
-              Tailored Integrations &amp; Worked Client Cases
+      {/* Industry Horizontal Blocks Section */}
+      <section className="py-24 md:py-32 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="space-y-6 mb-20 md:mb-28 text-left max-w-4xl">
+            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">
+              Worked Case Studies
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-brand-primary tracking-tight font-heading leading-tight">
+              Tailored Integrations &amp; <br />
+              <span className="font-semibold text-brand-secondary">Business Impact.</span>
             </h2>
-            <p className="text-base text-brand-text">
-              We study the physical constraints of each sector on the floor before writing code. Review our client cases below.
+            <p className="text-lg md:text-xl text-brand-text font-light leading-relaxed max-w-2xl">
+              A precise analysis of operational bottlenecks and the custom digital resolutions deployed across core industries.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Horizontal Storytelling Rows */}
+          <div className="divide-y divide-slate-100 border-t border-slate-100">
             {industriesList.map((ind, idx) => {
-              const Icon = ind.icon;
               return (
                 <motion.div
                   key={idx}
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: '-80px' }}
-                  className="bg-brand-section border border-brand-border rounded-xl p-6 hover:border-brand-accent/50 hover:shadow-md transition-all flex flex-col justify-between"
+                  viewport={{ once: true, margin: '-100px' }}
+                  className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-10 items-baseline first:pt-16 last:pb-0"
                 >
-                  <div className="space-y-6">
-                    {/* Header */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white border border-brand-border rounded-lg flex items-center justify-center text-brand-secondary shadow-xs">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-lg font-bold text-brand-primary font-heading">{ind.title}</h3>
-                    </div>
-
-                    {/* Breakdown */}
-                    <div className="space-y-4 text-sm text-left">
-                      {/* Challenge */}
-                      <div className="flex gap-2">
-                        <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                        <div className="space-y-0.5">
-                          <span className="text-xs font-bold text-slate-400 uppercase font-heading">Challenge</span>
-                          <p className="text-brand-text leading-relaxed text-xs">{ind.challenge}</p>
-                        </div>
-                      </div>
-
-                      {/* Solution */}
-                      <div className="flex gap-2">
-                        <Lightbulb className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
-                        <div className="space-y-0.5">
-                          <span className="text-xs font-bold text-brand-secondary uppercase font-heading">Our Solution</span>
-                          <p className="text-brand-primary font-medium leading-relaxed text-xs">{ind.solution}</p>
-                        </div>
-                      </div>
-
-                      {/* Benefit */}
-                      <div className="flex gap-2 bg-white p-3 rounded-md border border-brand-border">
-                        <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                        <div className="space-y-0.5">
-                          <span className="text-[10px] font-bold text-emerald-600 uppercase font-heading">Primary Benefit</span>
-                          <p className="text-brand-text leading-relaxed text-xs">{ind.benefit}</p>
-                        </div>
-                      </div>
-
-                      {/* Case details */}
-                      <div className="bg-white border border-brand-border/60 p-4 rounded-lg space-y-2 text-xs">
-                        <div className="flex justify-between items-center">
-                          <span className="font-extrabold text-brand-primary font-heading">Client: {ind.client}</span>
-                          <span className="font-mono text-brand-secondary text-[9px] bg-brand-section border border-brand-border px-2 py-0.5 rounded-full font-bold">{ind.projectType}</span>
-                        </div>
-                        <p className="text-brand-text leading-relaxed"><strong className="text-brand-primary">Scope:</strong> {ind.scope}</p>
-                        <p className="text-brand-text font-mono text-[9px] pt-1 border-t border-brand-border/50"><strong className="text-brand-primary font-sans font-bold">Tech Stack:</strong> {ind.tech}</p>
-                      </div>
-                    </div>
+                  {/* Column 1: Industry */}
+                  <div className="lg:col-span-2 md:col-span-2 space-y-1">
+                    <span className="font-mono text-[10px] text-slate-400 font-semibold tracking-wider block leading-none mb-1">
+                      {ind.index} /
+                    </span>
+                    <h3 className="text-lg font-bold text-brand-primary tracking-tight font-heading uppercase">
+                      {ind.title}
+                    </h3>
                   </div>
 
-                  {/* Actions */}
-                  <div className="mt-6 pt-4 border-t border-brand-border flex items-center justify-between">
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className="text-xs font-bold text-brand-secondary hover:text-brand-primary cursor-pointer"
-                    >
-                      Enquire for this sector
-                    </button>
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-emerald-600 hover:text-emerald-500 cursor-pointer"
-                    >
-                      WhatsApp Us
-                    </a>
+                  {/* Column 2: Challenge */}
+                  <div className="lg:col-span-3 space-y-2">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-heading block">
+                      Challenge
+                    </span>
+                    <p className="text-slate-600 text-sm font-light leading-relaxed">
+                      {ind.challenge}
+                    </p>
+                  </div>
+
+                  {/* Column 3: Solution */}
+                  <div className="lg:col-span-3 space-y-2">
+                    <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-widest font-heading block">
+                      Solution
+                    </span>
+                    <p className="text-slate-900 text-sm font-normal leading-relaxed">
+                      {ind.solution}
+                    </p>
+                  </div>
+
+                  {/* Column 4: Business Impact */}
+                  <div className="lg:col-span-2 space-y-2">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-heading block">
+                      Business Impact
+                    </span>
+                    <p className="text-slate-600 text-sm font-light leading-relaxed">
+                      {ind.impact}
+                    </p>
+                  </div>
+
+                  {/* Column 5: KPI Metric */}
+                  <div className="lg:col-span-2 text-left lg:text-right space-y-1 self-start lg:self-auto">
+                    <div className="text-4xl md:text-5xl font-extralight text-brand-secondary tracking-tight font-heading leading-none">
+                      {ind.metricValue}
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                      {ind.metricLabel}
+                    </span>
                   </div>
                 </motion.div>
               );

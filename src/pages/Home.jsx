@@ -265,8 +265,17 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: Industries We Serve — Bento Grid 2.0 */}
-      <section className="py-24 md:py-32 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <section className="py-24 md:py-32 bg-[#FAFAFC] border-b border-brand-border relative overflow-hidden">
+        {/* Subtle radial grid pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.4]" style={{
+          backgroundImage: 'radial-gradient(#CBD5E1 1px, transparent 1px)',
+          backgroundSize: '20px 20px'
+        }} />
+        {/* Ambient glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-50/35 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
           {/* Header */}
           <motion.div
@@ -305,37 +314,74 @@ export default function Home() {
           </motion.div>
 
           {/* Bento 2.0 Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-6">
 
             {/* HERO: Manufacturing — 2 cols × 2 rows */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[280px] transition-all duration-500 hover:shadow-2xl hover:shadow-slate-900/20"
+              className="group relative text-left cursor-pointer rounded-3xl overflow-hidden sm:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[380px] lg:min-h-[460px] bg-gradient-to-br from-slate-950 via-[#0B1528] to-[#122A52] border border-slate-900 shadow-md hover:shadow-2xl hover:shadow-blue-950/20 transition-all duration-500 flex flex-col justify-between p-8"
             >
-              {/* Deep navy gradient bg */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#1a3056] to-[#1d4ed8]" />
               {/* Dot pattern overlay */}
-              <div className="absolute inset-0 opacity-[0.06]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px'}} />
+              <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px'}} />
               {/* Glow orb */}
-              <div className="absolute bottom-0 right-0 w-56 h-56 bg-blue-500/20 rounded-full blur-3xl" />
-              <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-8">
-                <div className="space-y-5">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all duration-300">
-                    <Factory className="w-7 h-7" />
+              <div className="absolute bottom-0 right-0 w-56 h-56 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+              
+              {/* Content Top */}
+              <div className="relative z-10 space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all duration-300">
+                  <Factory className="w-7 h-7" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-extrabold text-white font-heading leading-tight">Manufacturing</h3>
+                  <p className="text-sm text-blue-200/80 leading-relaxed max-w-xs">Custom ERP systems for steel, textile, and heavy process industries.</p>
+                </div>
+              </div>
+
+              {/* Interactive Mini-UI: Live ERP Panel */}
+              <div className="relative z-10 mt-6 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex-1 flex flex-col justify-between font-mono text-[11px] text-slate-400 min-h-[160px]">
+                <div className="flex justify-between items-center border-b border-slate-800 pb-2 mb-2">
+                  <span className="text-white font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    STEEL ERP SYSTEM
+                  </span>
+                  <span className="text-slate-500 text-[10px]">v4.2</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="bg-slate-950/80 p-2 rounded-lg border border-slate-800/60 text-center">
+                    <div className="text-[8px] text-slate-500 uppercase">Input Scrap</div>
+                    <div className="text-xs font-bold text-white mt-0.5">14.8 T</div>
+                    <div className="text-[8px] text-emerald-500 font-semibold mt-0.5">↑ 99.2%</div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-extrabold text-white font-heading leading-tight">Manufacturing</h3>
-                    <p className="text-sm text-blue-200/80 leading-relaxed max-w-xs">Custom ERP systems for steel, textile, and heavy process industries.</p>
+                  <div className="bg-slate-950/80 p-2 rounded-lg border border-slate-800/60 text-center">
+                    <div className="text-[8px] text-slate-500 uppercase">Furnace Temp</div>
+                    <div className="text-xs font-bold text-white mt-0.5">1,620°C</div>
+                    <div className="text-[8px] text-emerald-500 font-semibold mt-0.5">OPTIMAL</div>
+                  </div>
+                  <div className="bg-slate-950/80 p-2 rounded-lg border border-slate-800/60 text-center">
+                    <div className="text-[8px] text-slate-500 uppercase">Production</div>
+                    <div className="text-xs font-bold text-white mt-0.5">12.4 T</div>
+                    <div className="text-[8px] text-blue-400 font-semibold mt-0.5">Live-Sync</div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-300/70 font-heading">ERP &amp; Industrial Systems</span>
-                  <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all">
-                    <ChevronRight className="w-4 h-4" />
+                <div className="mt-3 space-y-1.5">
+                  <div className="flex items-center justify-between text-[9px] bg-slate-950/40 px-2 py-1 rounded border border-slate-800/40">
+                    <span>Logistics Gate 1: Outgoing</span>
+                    <span className="text-emerald-500 font-bold">DISPATCHED</span>
                   </div>
+                  <div className="flex items-center justify-between text-[9px] bg-slate-950/40 px-2 py-1 rounded border border-slate-800/40">
+                    <span>Weighbridge Sync Status</span>
+                    <span className="text-emerald-500 font-bold">CONNECTED</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Action */}
+              <div className="relative z-10 mt-6 flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-300/70 font-heading">ERP &amp; Industrial Systems</span>
+                <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/20 transition-all">
+                  <ChevronRight className="w-4 h-4" />
                 </div>
               </div>
             </motion.button>
@@ -344,130 +390,281 @@ export default function Home() {
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <Building2 className="w-5 h-5" />
+              <div className="space-y-4">
+                <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Construction</h3>
+                  <p className="text-xs text-brand-text leading-relaxed">Material logistics, billing, and site delivery management.</p>
+                </div>
               </div>
-              <div className="flex-1 space-y-1.5">
-                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Construction</h3>
-                <p className="text-xs text-brand-text leading-relaxed">Material logistics, billing, and site delivery management.</p>
+
+              {/* Interactive Mini-UI: Logistics tracking */}
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center justify-between p-2 bg-slate-50 border border-slate-100 rounded-xl text-[10px]">
+                  <span className="font-semibold text-slate-700">Cement Batch #4</span>
+                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 font-bold text-[8px] rounded-full uppercase">On-Site</span>
+                </div>
+                <div className="flex items-center justify-between p-2 bg-slate-50 border border-slate-100 rounded-xl text-[10px]">
+                  <span className="font-semibold text-slate-700">Steel Delivery</span>
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 font-bold text-[8px] rounded-full uppercase">Signed</span>
+                </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">Site Sync</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
+              </div>
             </motion.button>
 
             {/* Agriculture — 1×1 */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <Leaf className="w-5 h-5" />
+              <div className="space-y-4">
+                <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                  <Leaf className="w-5 h-5" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Agriculture</h3>
+                  <p className="text-xs text-brand-text leading-relaxed">Farm-to-market trading, weighbridge automation, and crop logistics.</p>
+                </div>
               </div>
-              <div className="flex-1 space-y-1.5">
-                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Agriculture</h3>
-                <p className="text-xs text-brand-text leading-relaxed">Farm-to-market trading, weighbridge automation, and crop logistics.</p>
+
+              {/* Interactive Mini-UI: Weighbridge ticket info */}
+              <div className="mt-4 space-y-2 font-mono">
+                <div className="bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-left">
+                  <div className="text-[8px] text-slate-400 uppercase">Weighbridge Log</div>
+                  <div className="text-[10px] font-bold text-slate-800 mt-0.5">NET WT: 14,240 KG</div>
+                  <div className="flex justify-between items-center text-[8px] text-slate-500 mt-1">
+                    <span>Grade: Coir A</span>
+                    <span className="text-emerald-600 font-bold">Verified ✓</span>
+                  </div>
+                </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">Trading Platform</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
+              </div>
             </motion.button>
 
             {/* Startups & SMEs — 2×1 wide */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl border border-slate-200 shadow-sm p-7 sm:col-span-2 lg:col-span-2 flex flex-row items-center gap-6 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
-              style={{background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%)'}}
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 sm:col-span-2 lg:col-span-2 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-14 h-14 shrink-0 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <Rocket className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row gap-6 items-start justify-between flex-1">
+                <div className="space-y-4 max-w-sm">
+                  <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                    <Rocket className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Startups &amp; SMEs</h3>
+                    <p className="text-xs text-brand-text leading-relaxed">Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.</p>
+                  </div>
+                </div>
+
+                {/* Interactive Mini-UI: Simulated code terminal */}
+                <div className="bg-slate-950 rounded-xl p-3 flex-1 font-mono text-[9px] text-slate-400 border border-slate-800 w-full sm:max-w-[240px] shrink-0 self-center">
+                  <div className="flex items-center gap-1.5 mb-1.5 border-b border-slate-800 pb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span className="text-[8px] text-slate-500 ml-1">deploy.sh</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-slate-500">$ npx create-next-app@latest</div>
+                    <div className="text-blue-400">✓ Project initialized.</div>
+                    <div className="text-emerald-400 font-semibold">✓ Deploy live at m2pnexus.com</div>
+                  </div>
+                </div>
               </div>
-              <div className="flex-1 min-w-0 space-y-1.5">
-                <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Startups &amp; SMEs</h3>
-                <p className="text-sm text-brand-text leading-relaxed">Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.</p>
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">MVP Deployment</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
               </div>
-              <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
             </motion.button>
 
             {/* EdTech — 1×1 */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <GraduationCap className="w-5 h-5" />
+              <div className="space-y-4">
+                <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">EdTech</h3>
+                  <p className="text-xs text-brand-text leading-relaxed">Student portals, GPA automation, and real-time parent notifications.</p>
+                </div>
               </div>
-              <div className="flex-1 space-y-1.5">
-                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">EdTech</h3>
-                <p className="text-xs text-brand-text leading-relaxed">Student portals, GPA automation, and real-time parent notifications.</p>
+
+              {/* Interactive Mini-UI: Student profile snippet */}
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-bold text-[9px] text-brand-secondary border border-slate-200">
+                    MP
+                  </div>
+                  <div>
+                    <div className="text-[9px] font-bold text-slate-800">Maruthu P.</div>
+                    <div className="text-[8px] text-slate-400">ID #4829</div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-[9px] bg-slate-50 border border-slate-100 p-1 rounded-lg">
+                  <span className="text-slate-600">Attendance</span>
+                  <span className="font-bold text-emerald-600">98.5% (A+)</span>
+                </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">Institution Portal</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
+              </div>
             </motion.button>
 
             {/* Logistics — 1×1 */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col gap-5 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <Truck className="w-5 h-5" />
+              <div className="space-y-4">
+                <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                  <Truck className="w-5 h-5" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Logistics</h3>
+                  <p className="text-xs text-brand-text leading-relaxed">Fleet management, route tracking, driver logs, and fuel auditing.</p>
+                </div>
               </div>
-              <div className="flex-1 space-y-1.5">
-                <h3 className="text-base font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Logistics</h3>
-                <p className="text-xs text-brand-text leading-relaxed">Fleet management, route tracking, driver logs, and fuel auditing.</p>
+
+              {/* Interactive Mini-UI: Live route schematic */}
+              <div className="mt-4 bg-slate-50 border border-slate-100 rounded-xl p-2 flex flex-col justify-center items-center relative overflow-hidden min-h-[50px]">
+                <svg className="w-full h-6 text-slate-300" viewBox="0 0 100 20" fill="none">
+                  <path d="M10,10 C30,3 50,17 90,10" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <circle cx="10" cy="10" r="2.5" fill="#1E3A8A" />
+                  <circle cx="90" cy="10" r="2.5" fill="#10B981" />
+                  <circle cx="50" cy="10" r="3" fill="#10B981" className="animate-ping" />
+                  <circle cx="50" cy="10" r="2.5" fill="#10B981" />
+                </svg>
+                <div className="flex justify-between w-full text-[8px] text-slate-400 px-1 mt-0.5">
+                  <span>Start</span>
+                  <span className="text-brand-secondary font-bold">Transit</span>
+                  <span>End</span>
+                </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200" />
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">Fleet Tracking</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
+              </div>
             </motion.button>
 
             {/* Retail — 2×1 wide */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl border border-slate-200 shadow-sm p-7 sm:col-span-2 lg:col-span-2 flex flex-row items-center gap-6 hover:shadow-md hover:-translate-y-0.5 hover:border-brand-secondary/30 transition-all duration-300 overflow-hidden"
-              style={{background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%)'}}
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 sm:col-span-2 lg:col-span-2 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-[220px]"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-14 h-14 shrink-0 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
-                <ShoppingBag className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row gap-6 items-start justify-between flex-1">
+                <div className="space-y-4 max-w-sm">
+                  <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300">
+                    <ShoppingBag className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Retail</h3>
+                    <p className="text-xs text-brand-text leading-relaxed">Bilingual POS systems and offline-first GST billing solutions.</p>
+                  </div>
+                </div>
+
+                {/* Interactive Mini-UI: GST invoice mockup */}
+                <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 flex-1 flex flex-col justify-between font-mono text-[9px] text-slate-600 w-full sm:max-w-[240px] shrink-0 self-center">
+                  <div className="flex justify-between border-b border-dashed border-slate-200 pb-1 mb-1">
+                    <span className="font-bold text-slate-800 text-[8px]">விற்பனை சீட்டு / GST</span>
+                    <span className="text-slate-400">#8842</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="flex justify-between">
+                      <span>Rods / கம்பி</span>
+                      <span className="font-semibold">₹14,500</span>
+                    </div>
+                    <div className="flex justify-between text-[8px] text-slate-400">
+                      <span>GST @ 18%</span>
+                      <span>₹2,610</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center border-t border-dashed border-slate-200 pt-1 mt-1 text-[10px] font-bold text-brand-secondary">
+                    <span>மொத்தம் / TOTAL</span>
+                    <span>₹17,110</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex-1 min-w-0 space-y-1.5">
-                <h3 className="text-lg font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">Retail</h3>
-                <p className="text-sm text-brand-text leading-relaxed">Bilingual POS systems and offline-first GST billing solutions.</p>
+
+              <div className="mt-4 flex justify-between items-center text-slate-400 group-hover:text-brand-secondary">
+                <span className="text-[9px] font-bold uppercase tracking-wider">POS Systems</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-all duration-200" />
               </div>
-              <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
             </motion.button>
 
             {/* IT & Technology — Full-width banner */}
             <motion.button
               variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
               onClick={() => navigate('/industries')}
-              className="group relative text-left cursor-pointer rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-4 flex flex-row items-center gap-8 p-7 sm:p-8 border border-slate-200 hover:border-brand-secondary/30 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-              style={{background: 'linear-gradient(100deg, #f0f4ff 0%, #ffffff 40%, #f8fafc 100%)'}}
+              className="group relative text-left cursor-pointer rounded-3xl bg-white border border-slate-200/80 shadow-sm p-6 sm:p-8 sm:col-span-2 lg:col-span-4 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              {/* Left accent bar */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-secondary via-brand-accent to-brand-secondary/30 rounded-l-2xl" />
-              {/* Icon */}
-              <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-brand-secondary to-slate-700 flex items-center justify-center text-white shadow-lg group-hover:shadow-brand-secondary/30 group-hover:scale-105 transition-all duration-300">
-                <Cpu className="w-7 h-7" />
-              </div>
-              {/* Content */}
-              <div className="flex-1 min-w-0 space-y-1.5">
+              {/* Left Content */}
+              <div className="flex-1 max-w-lg space-y-4">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">IT &amp; Technology</h3>
-                  <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-[10px] font-bold uppercase tracking-widest font-heading">Digital Transformation</span>
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-secondary to-blue-900 flex items-center justify-center text-white shadow-lg shadow-blue-950/10">
+                    <Cpu className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">IT &amp; Technology</h3>
+                    <span className="inline-flex px-2 py-0.5 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-[9px] font-bold uppercase tracking-widest font-heading mt-0.5">Enterprise Delivery</span>
+                  </div>
                 </div>
-                <p className="text-sm text-brand-text leading-relaxed">Tech staffing, offshore delivery teams, and strategic digital consulting for enterprise-scale transformation.</p>
+                <p className="text-xs text-brand-text leading-relaxed">
+                  Tech staffing, offshore delivery teams, custom API integrations, and strategic digital consulting built for enterprise scalability and transformation.
+                </p>
               </div>
-              {/* Arrow */}
-              <div className="shrink-0 w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:border-brand-secondary group-hover:text-brand-secondary group-hover:bg-brand-secondary/5 transition-all duration-300">
-                <ChevronRight className="w-5 h-5" />
+
+              {/* Right Mini-UI Layout */}
+              <div className="flex-1 flex flex-col md:flex-row gap-4 items-center w-full lg:w-auto">
+                {/* Tech badges */}
+                <div className="flex flex-wrap gap-1.5 justify-center md:justify-start">
+                  {['React', 'Node.js', 'Python', '.NET Core', 'AWS', 'Docker'].map((tech) => (
+                    <span key={tech} className="px-2.5 py-1 bg-slate-50 border border-slate-200/80 rounded-lg text-[9px] font-bold text-slate-600 font-mono shadow-2xs hover:bg-slate-100 hover:text-slate-800 transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {/* Mock endpoint */}
+                <div className="bg-slate-950 text-[9px] font-mono text-slate-400 p-3 rounded-xl border border-slate-800 w-full md:w-52 shrink-0 text-left">
+                  <div className="text-emerald-500 font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                    GET /v2/scale/ready
+                  </div>
+                  <div className="text-slate-500 mt-1">{"{"}</div>
+                  <div className="pl-3">"status": "synchronized",</div>
+                  <div className="pl-3">"latency": "14ms"</div>
+                  <div>{"}"}</div>
+                </div>
+              </div>
+
+              {/* Bottom indicators absolute-like layout or footer */}
+              <div className="lg:hidden w-full flex justify-between items-center text-slate-400 border-t border-slate-100 pt-4 mt-2">
+                <span className="text-[9px] font-bold uppercase tracking-wider">Digital Transformation</span>
+                <ChevronRight className="w-4 h-4" />
               </div>
             </motion.button>
 
