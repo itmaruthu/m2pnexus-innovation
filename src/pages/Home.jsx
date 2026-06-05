@@ -262,35 +262,112 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5: Industries We Serve */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-brand-text">
-              We bring deep engineering expertise and business-first technology architectures to critical sectors.
-            </p>
-          </div>
+      {/* SECTION 5: Industries We Serve — Glassmorphic Premium */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-brand-primary border-b border-slate-800">
+        {/* Subtle tech grid backdrop */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        {/* Soft glowing blur orbs */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          {/* Section Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="text-center space-y-5 max-w-3xl mx-auto"
+          >
+            <motion.span
+              variants={fadeInUp}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-blue-400 text-xs font-bold uppercase tracking-widest font-heading"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              Market Verticals
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-3xl md:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight"
+            >
+              Industries We Serve
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className="text-base sm:text-lg text-slate-400 leading-relaxed"
+            >
+              We bring deep engineering expertise and business-first technology architectures to critical sectors across India.
+            </motion.p>
+          </motion.div>
+
+          {/* Staggered premium cards grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-8">
             {industriesWeServe.map((ind, idx) => {
               const Icon = ind.icon;
+
+              // Stagger vertical offsets for visual rhythm
+              const offsets = ['lg:translate-y-0', 'lg:translate-y-8', 'lg:translate-y-4', 'lg:translate-y-12', 'lg:translate-y-2', 'lg:translate-y-10', 'lg:translate-y-6'];
+              const offset = offsets[idx % offsets.length];
+
               return (
-                <button
+                <motion.button
                   key={idx}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-60px' }}
                   onClick={() => navigate('/industries')}
-                  className="bg-white border border-brand-border p-6 rounded-lg text-center flex flex-col items-center justify-center gap-3 hover:border-brand-secondary transition-colors group cursor-pointer shadow-xs hover:shadow-sm"
+                  className={`group relative flex flex-col items-start gap-5 text-left p-6 rounded-2xl cursor-pointer
+                    bg-slate-900/40 backdrop-blur-lg
+                    border border-slate-800/80
+                    shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_10px_30px_rgba(0,0,0,0.3)]
+                    hover:bg-slate-900/65 hover:border-blue-500/30
+                    hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.12)]
+                    hover:-translate-y-1.5
+                    transition-all duration-500 ${offset}`}
                 >
-                  <div className="w-12 h-12 rounded-full bg-brand-section flex items-center justify-center text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white transition-colors">
-                    <Icon className="w-6 h-6" />
+                  {/* Icon glow ring */}
+                  <div className="w-12 h-12 rounded-xl bg-blue-950/50 border border-blue-500/25 flex items-center justify-center text-blue-400 shadow-[0_0_18px_rgba(59,130,246,0.25)] group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(59,130,246,0.45)] transition-all duration-400">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-sm font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors">{ind.title}</span>
-                </button>
+
+                  {/* Label */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-base font-bold text-white font-heading group-hover:text-blue-300 transition-colors duration-300">
+                      {ind.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                      Tailored solutions &amp; client case studies
+                    </p>
+                  </div>
+
+                  {/* Hover arrow indicator */}
+                  <div className="absolute bottom-5 right-5 text-slate-600 group-hover:text-blue-400 transition-all duration-300 group-hover:translate-x-0.5">
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+                </motion.button>
               );
             })}
           </div>
+
+          {/* CTA link */}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <button
+              onClick={() => navigate('/industries')}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500/50 hover:text-white hover:bg-slate-800/60 text-sm font-semibold transition-all duration-300 cursor-pointer"
+            >
+              View all client case studies
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
