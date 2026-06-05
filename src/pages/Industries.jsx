@@ -16,11 +16,7 @@ import {
   ShieldCheck,
   Zap,
   Users,
-  Sparkles,
-  ChevronRight,
-  Shield,
-  Activity,
-  Hourglass
+  ArrowRight
 } from 'lucide-react';
 import Seo from '../components/Seo';
 
@@ -29,17 +25,17 @@ import clientAvatar1 from '../assets/client_avatar_1.png';
 import clientAvatar2 from '../assets/client_avatar_2.png';
 import clientAvatar3 from '../assets/client_avatar_3.png';
 
-// Animation Variants
+// Framer Motion Animation Variants
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const staggerContainer = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.12
     }
   }
 };
@@ -48,7 +44,6 @@ export default function Industries() {
   const navigate = useNavigate();
   const whatsappUrl = "https://wa.me/919944283316?text=Hello%20Maruthu%2C%0A%0AI%20visited%20the%20M2P%20Nexus%20website%20and%20would%20like%20to%20discuss%20my%20business%20requirements.%0A%0APlease%20contact%20me.%0A%0AThank%20you.";
 
-  // Industries dataset with original text intact
   const industriesList = [
     {
       title: 'Manufacturing',
@@ -84,15 +79,15 @@ export default function Industries() {
       tech: 'React, Node.js, Express, MongoDB'
     },
     {
-      title: 'Retail',
-      icon: ShoppingBag,
-      challenge: 'Legacy GST billing systems are slow, complex, and fail during internet blackouts.',
-      solution: 'Install a high-speed, localized bilingual billing software (Tamil/English) with local caching.',
-      benefit: 'Zero transactional delays and faster checkout queues for traders.',
-      client: 'Karthik Traders & Provisions',
-      projectType: 'Bilingual POS Client',
-      scope: 'Engineered high-speed, offline-first billing client supporting GST invoicing in Tamil & English.',
-      tech: 'Vite, React, IndexedDB, Tailwind CSS'
+      title: 'Startups & SMEs',
+      icon: Rocket,
+      challenge: 'Bloated software quotes, long wait times, and failure to establish a digital authority.',
+      solution: 'Rapid, cost-effective MVP development, sleek SEO websites, and flexible cloud systems.',
+      benefit: 'Faster market entry and premium corporate digital presence.',
+      client: 'Nexus Retailers & Co.',
+      projectType: 'Custom E-Commerce MVP',
+      scope: 'Developed full-stack e-commerce web MVP with responsive storefront, order management, and Stripe integrations.',
+      tech: 'Vite, React, Node.js, Tailwind CSS'
     },
     {
       title: 'EdTech',
@@ -108,7 +103,7 @@ export default function Industries() {
     {
       title: 'Logistics',
       icon: Truck,
-      challenge: 'Uncoordinated driver logs, vehicle maintenance tracking, and raw fuel billing discrepancies.',
+      challenge: 'Uncoordinated driver logs, vehicle maintenance tracking, and fuel billing discrepancies.',
       solution: 'Deploy cloud transport portals tracking mileage, driver sheets, load counts, and maintenance dates.',
       benefit: 'Reduced fuel fraud and clean operational logs for transport networks.',
       client: 'Maruthi Transport & Logistics',
@@ -117,25 +112,17 @@ export default function Industries() {
       tech: 'React, Python, Fast API, PostgreSQL'
     },
     {
-      title: 'Startups & SMEs',
-      icon: Rocket,
-      challenge: 'Bloated software quotes, long wait times, and failure to establish a digital authority.',
-      solution: 'Rapid, cost-effective MVP development, sleek SEO websites, and flexible cloud systems.',
-      benefit: 'Faster market entry and premium corporate digital presence.',
-      client: 'Nexus Retailers & Co.',
-      projectType: 'Custom E-Commerce MVP',
-      scope: 'Developed full-stack e-commerce web MVP with responsive storefront, order management, and Stripe integrations.',
-      tech: 'Vite, React, Node.js, Tailwind CSS'
+      title: 'Retail',
+      icon: ShoppingBag,
+      challenge: 'Legacy GST billing systems are slow, complex, and fail during internet blackouts.',
+      solution: 'Install a high-speed, localized bilingual billing software (Tamil/English) with local caching.',
+      benefit: 'Zero transactional delays and faster checkout queues for traders.',
+      client: 'Karthik Traders & Provisions',
+      projectType: 'Bilingual POS Client',
+      scope: 'Engineered high-speed, offline-first billing client supporting GST invoicing in Tamil & English.',
+      tech: 'Vite, React, IndexedDB, Tailwind CSS'
     }
   ];
-
-  // Group columns for staggered desktop layout
-  // Column 1: Manufacturing, Startups & SMEs
-  // Column 2: Construction, EdTech, Retail
-  // Column 3: Agriculture, Logistics
-  const column1 = [industriesList[0], industriesList[6]];
-  const column2 = [industriesList[1], industriesList[4], industriesList[3]];
-  const column3 = [industriesList[2], industriesList[5]];
 
   const testimonials = [
     {
@@ -175,315 +162,300 @@ export default function Industries() {
         description="Explore the industries M2P Nexus works in, client project scope, verified client testimonials with photos, and our overall quality review metrics."
       />
 
-      <div className="bg-gradient-to-br from-[#030712] via-[#080f24] to-[#020617] text-white min-h-screen relative overflow-hidden">
-        {/* Glow Effects */}
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-[30%] right-10 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-[20%] left-10 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Hero Section */}
+      <section className="bg-brand-primary text-white py-20 md:py-28 text-center relative overflow-hidden">
+        {/* Subtle grid backdrop */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-secondary/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-        {/* Subtle abstract grid lines overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:5rem_5rem] opacity-[0.08] pointer-events-none"></div>
-
-        {/* HERO SECTION */}
-        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 text-center z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+        >
+          <motion.span
+            variants={fadeInUp}
+            className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-brand-accent text-xs font-semibold uppercase tracking-widest font-heading"
           >
-            <motion.span
-              variants={fadeInUp}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-semibold uppercase tracking-widest font-heading shadow-[0_0_15px_rgba(59,130,246,0.1)]"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              Sectors We Empower
-            </motion.span>
+            <Zap className="w-3.5 h-3.5 text-brand-accent" />
+            Market Verticals
+          </motion.span>
+          
+          <motion.h1
+            variants={fadeInUp}
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight"
+          >
+            Our Worked Industries
+          </motion.h1>
+          
+          <motion.p
+            variants={fadeInUp}
+            className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          >
+            Discover the sectors we have modernized and read verified feedback from business leaders we support.
+          </motion.p>
+        </motion.div>
+      </section>
 
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400"
-            >
-              Industries We Serve
-            </motion.h1>
+      {/* Industries We Serve Section (Glassmorphism & Staggered Layout) */}
+      <section className="relative py-24 bg-brand-primary text-white border-b border-brand-border overflow-hidden">
+        {/* Subtle grid backdrop */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
+        
+        {/* Glowing blur shapes */}
+        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
-            >
-              Tailored software systems and technology-led consulting built on deep operational analysis, solving real-world business bottlenecks.
-            </motion.p>
-          </motion.div>
-        </section>
-
-        {/* INDUSTRY CARDS SECTION (STAGGERED LAYOUT) */}
-        <section className="py-16 md:py-24 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest font-heading">Client Success Portfolios</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
-                Proven Cases & Custom Architectures
-              </h2>
-              <p className="text-base text-slate-400 leading-relaxed">
-                We design specialized operational software modeled on physical operational floor workflows. Explore our active sector portfolios below.
-              </p>
-            </div>
-
-            {/* 3-Column Staggered Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-              {/* COLUMN 1 */}
-              <div className="space-y-8 flex flex-col">
-                {column1.map((ind, idx) => {
-                  const Icon = ind.icon;
-                  return <IndustryCard key={idx} ind={ind} Icon={Icon} navigate={navigate} whatsappUrl={whatsappUrl} />;
-                })}
-              </div>
-
-              {/* COLUMN 2 (STAGGERED DOWNWARDS ON DESKTOP) */}
-              <div className="space-y-8 lg:translate-y-10 flex flex-col">
-                {column2.map((ind, idx) => {
-                  const Icon = ind.icon;
-                  return <IndustryCard key={idx} ind={ind} Icon={Icon} navigate={navigate} whatsappUrl={whatsappUrl} />;
-                })}
-              </div>
-
-              {/* COLUMN 3 (STAGGERED EVEN MORE ON DESKTOP) */}
-              <div className="space-y-8 lg:translate-y-20 flex flex-col">
-                {column3.map((ind, idx) => {
-                  const Icon = ind.icon;
-                  return <IndustryCard key={idx} ind={ind} Icon={Icon} navigate={navigate} whatsappUrl={whatsappUrl} />;
-                })}
-              </div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="text-xs font-semibold text-brand-accent uppercase tracking-widest font-heading">
+              Sectors & Impact
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
+              Tailored Integrations & Worked Client Cases
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              We study the physical constraints of each sector on the floor before writing code. Review our client cases below.
+            </p>
           </div>
-        </section>
 
-        {/* Spacer to balance the staggered bottom gap */}
-        <div className="hidden lg:block h-28"></div>
+          {/* Staggered Flat-mapping Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+            {industriesList.map((ind, idx) => {
+              const Icon = ind.icon;
+              
+              // Offsets for staggered layout
+              let offsetClass = "";
+              if (idx % 3 === 1) offsetClass = "lg:translate-y-12";
+              if (idx % 3 === 2) offsetClass = "lg:translate-y-6";
+              
+              let mdOffsetClass = "";
+              if (idx % 2 === 1) mdOffsetClass = "md:translate-y-8";
 
-        {/* CLIENT TESTIMONIALS SECTION */}
-        <section className="py-20 md:py-28 relative z-10 border-t border-white/[0.06] bg-slate-950/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest font-heading">Endorsements</span>
-              <h2 className="text-3xl font-extrabold font-heading text-white">
-                Feedback from Business Leaders
-              </h2>
-              <p className="text-base text-slate-400">
-                Verified performance feedback from manufacturing directors, agribusiness founders, and retailers we support.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((t, idx) => (
-                <div
+              return (
+                <motion.div
                   key={idx}
-                  className="bg-white/[0.02] backdrop-blur-md border border-white/[0.06] p-8 rounded-3xl flex flex-col justify-between hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 shadow-2xl relative group"
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  className={`flex flex-col justify-between rounded-3xl bg-slate-900/40 backdrop-blur-lg border border-slate-800/80 p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] hover:bg-slate-900/60 hover:border-blue-500/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_25px_rgba(59,130,246,0.15)] transition-all duration-500 hover:-translate-y-1 group ${offsetClass} ${mdOffsetClass}`}
                 >
-                  <div className="absolute top-0 right-8 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <div className="space-y-6">
-                    {/* Rating Stars */}
-                    <div className="flex gap-1">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
+                    {/* Header */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.25)] group-hover:scale-105 transition-transform duration-300">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white font-heading group-hover:text-blue-400 transition-colors">
+                        {ind.title}
+                      </h3>
                     </div>
-                    {/* Quote Text */}
-                    <p className="text-sm italic text-slate-300 leading-relaxed text-left">
-                      "{t.quote}"
-                    </p>
-                  </div>
-                  {/* User Profile */}
-                  <div className="flex items-center gap-4 border-t border-white/[0.06] pt-6 mt-6 text-left">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-500/20 bg-slate-900 shrink-0">
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm font-heading leading-snug">{t.name}</h4>
-                      <p className="text-[10px] text-blue-400 font-semibold tracking-wider uppercase font-heading">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* PERFORMANCE RATING & SCORES */}
-        <section className="py-20 md:py-28 relative z-10 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Left Column: Overall Rating Score */}
-              <div className="lg:col-span-5 bg-white/[0.02] backdrop-blur-md border border-white/[0.07] p-8 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden group">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-                <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest font-heading">Performance Audit</span>
-                
-                <div className="space-y-4 relative z-10">
-                  <div className="inline-flex items-center justify-center w-28 h-28 rounded-full border-4 border-blue-500/30 bg-blue-500/5 shadow-[0_0_25px_rgba(59,130,246,0.2)]">
-                    <span className="text-5xl font-extrabold text-white font-heading">4.9</span>
-                  </div>
-                  
-                  <div className="flex justify-center gap-1.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-slate-400 font-medium tracking-wide uppercase">Verified Average Across 50+ Modules</p>
-                </div>
-                
-                <div className="border-t border-white/[0.06] pt-6 relative z-10">
-                  <p className="text-xs text-slate-300 italic leading-relaxed">
-                    "Our engineering philosophy focuses on high operations yields and low-friction, zero-training adoption for operators on the floor."
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column: Breakdown */}
-              <div className="lg:col-span-7 space-y-8 text-left">
-                <div className="space-y-3">
-                  <h2 className="text-3xl font-extrabold font-heading text-white">
-                    Review Breakdown & Audit Scores
-                  </h2>
-                  <p className="text-sm text-slate-400">
-                    How our software architectures perform on third-party security audits and client reviews:
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {reviewBreakdown.map((item, idx) => {
-                    const Icon = item.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="bg-white/[0.02] border border-white/[0.06] p-6 rounded-2xl flex gap-4 hover:border-blue-500/20 hover:bg-white/[0.03] transition-all duration-300"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <div className="space-y-1.5">
-                          <div className="flex items-center gap-2">
-                            <h4 className="font-bold text-white text-sm font-heading leading-snug">{item.label}</h4>
-                            <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">{item.score}</span>
-                          </div>
-                          <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                    {/* Breakdown */}
+                    <div className="space-y-4 text-xs text-left">
+                      {/* Challenge */}
+                      <div className="flex gap-3">
+                        <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                        <div className="space-y-0.5">
+                          <span className="text-[10px] font-bold text-slate-400 uppercase font-heading tracking-wider">Challenge</span>
+                          <p className="text-slate-300 leading-relaxed font-normal">{ind.challenge}</p>
                         </div>
                       </div>
-                    );
-                  })}
+
+                      {/* Solution */}
+                      <div className="flex gap-3">
+                        <Lightbulb className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                        <div className="space-y-0.5">
+                          <span className="text-[10px] font-bold text-blue-400 uppercase font-heading tracking-wider">Our Solution</span>
+                          <p className="text-slate-200 font-medium leading-relaxed">{ind.solution}</p>
+                        </div>
+                      </div>
+
+                      {/* Benefit */}
+                      <div className="flex gap-3 bg-white/5 border border-white/5 p-3 rounded-2xl shadow-inner">
+                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div className="space-y-0.5">
+                          <span className="text-[9px] font-bold text-emerald-400 uppercase font-heading tracking-wider">Primary Benefit</span>
+                          <p className="text-slate-300 leading-relaxed font-normal">{ind.benefit}</p>
+                        </div>
+                      </div>
+
+                      {/* Case details (Sub-glass card) */}
+                      <div className="bg-slate-950/50 border border-slate-800/60 p-4 rounded-2xl space-y-2.5">
+                        <div className="flex justify-between items-center gap-2">
+                          <span className="font-bold text-white font-heading truncate">Client: {ind.client}</span>
+                          <span className="font-mono text-blue-400 text-[9px] bg-blue-950/45 border border-blue-900/60 px-2 py-0.5 rounded-full font-bold shrink-0">{ind.projectType}</span>
+                        </div>
+                        <p className="text-slate-300 leading-relaxed">
+                          <strong className="text-white font-semibold">Scope:</strong> {ind.scope}
+                        </p>
+                        <div className="pt-2 border-t border-slate-800/50 flex flex-wrap gap-1.5 items-center">
+                          <span className="text-slate-400 font-sans font-bold mr-1">Tech:</span>
+                          {ind.tech.split(', ').map((techItem, techIdx) => (
+                            <span key={techIdx} className="font-mono text-[9px] text-slate-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded-md">
+                              {techItem}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="mt-6 pt-4 border-t border-slate-800/50 flex items-center justify-between text-xs">
+                    <button
+                      onClick={() => navigate('/contact')}
+                      className="font-bold text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1 group/btn"
+                    >
+                      Enquire for Sector <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer"
+                    >
+                      WhatsApp Us
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-24 bg-brand-section border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Testimonials</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary font-heading">
+              Feedback from Business Owners
+            </h2>
+            <p className="text-base text-brand-text">
+              Real reviews from manufacturing directors, agribusiness founders, and retailers we support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-white border border-brand-border p-8 rounded-3xl flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-300 space-y-6">
+                <div className="space-y-4">
+                  {/* Rating */}
+                  <div className="flex gap-1">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  {/* Quote */}
+                  <p className="text-sm italic text-brand-text leading-relaxed text-left">
+                    "{t.quote}"
+                  </p>
                 </div>
+                {/* Profile */}
+                <div className="flex items-center gap-4 border-t border-brand-border pt-6 text-left">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-border bg-brand-section shrink-0">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-brand-primary text-sm font-heading leading-snug">{t.name}</h4>
+                    <p className="text-[10px] text-brand-accent font-semibold tracking-wider uppercase font-heading">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Overall Review / Feedbacks Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Overall Rating Score */}
+            <div className="lg:col-span-5 bg-brand-section border border-brand-border p-8 rounded-3xl text-center space-y-6 shadow-xs">
+              <span className="text-xs font-semibold text-brand-secondary uppercase tracking-widest font-heading">Performance Rating</span>
+              <div className="space-y-2">
+                <div className="text-6xl font-extrabold text-brand-primary font-heading">4.9</div>
+                <div className="flex justify-center gap-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-brand-text font-medium">Verified average across 50+ business modules</p>
+              </div>
+              
+              <div className="border-t border-brand-border pt-4">
+                <p className="text-xs text-brand-secondary italic">
+                  "Our design philosophy is anchored in operational safety and zero-training adoption, translating directly into high ratings."
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Breakdown */}
+            <div className="lg:col-span-7 space-y-8 text-left">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-extrabold text-brand-primary font-heading">
+                  Review Breakdown & Audit Scores
+                </h2>
+                <p className="text-sm text-brand-text">
+                  How we score on third-party reviews and independent software architecture audits:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {reviewBreakdown.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={idx} className="bg-brand-section border border-brand-border p-5 rounded-2xl flex gap-4 hover:border-slate-300 hover:shadow-xs transition-all duration-300">
+                      <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-secondary shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-brand-primary text-sm font-heading leading-snug">{item.label}</h4>
+                          <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{item.score}</span>
+                        </div>
+                        <p className="text-xs text-brand-text leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA CONSULTATION SECTION */}
-        <section className="relative py-20 text-center overflow-hidden border-t border-white/[0.06]">
-          <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 z-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-white">
-              Need custom tech integration for your sector?
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-              Discuss your system constraints directly with our tech director. Get custom weighbridge, logistics, billing, or ERP audits.
-            </p>
-            <div className="pt-2">
-              <button
-                onClick={() => navigate('/contact')}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-3.5 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all cursor-pointer border border-blue-400/20"
-              >
-                Consult with our Architect
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+      {/* CTA Section */}
+      <section className="bg-brand-primary text-white py-20 text-center relative overflow-hidden">
+        {/* Subtle grid backdrop */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-white">
+            Need custom tech integration for your sector?
+          </h2>
+          <p className="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+            Discuss your system constraints directly with our tech director. Get custom weighbridge, logistics, billing, or ERP audits.
+          </p>
+          <div className="pt-2">
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-brand-secondary hover:bg-slate-800 border border-slate-700 text-white px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+            >
+              Consult with our Architect
+            </button>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
-  );
-}
-
-// Reusable IndustryCard Component
-function IndustryCard({ ind, Icon, navigate, whatsappUrl }) {
-  return (
-    <div className="bg-white/[0.02] backdrop-blur-md border border-white/[0.06] rounded-[2.5rem] p-6 hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-300 flex flex-col justify-between min-h-[460px] group shadow-2xl relative overflow-hidden">
-      {/* Visual Accent Glow on Hover */}
-      <div className="absolute -right-16 -top-16 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-      <div className="space-y-6">
-        {/* Card Header */}
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-105 transition-transform duration-300">
-            <Icon className="w-6 h-6" />
-          </div>
-          <h3 className="text-xl font-bold text-white font-heading tracking-tight">{ind.title}</h3>
-        </div>
-
-        {/* Details Breakdown */}
-        <div className="space-y-4 text-xs text-left">
-          {/* Challenge */}
-          <div className="flex gap-3">
-            <AlertTriangle className="w-5 h-5 text-red-400/80 shrink-0 mt-0.5" />
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-heading">Operational Challenge</span>
-              <p className="text-slate-300 leading-relaxed font-medium">{ind.challenge}</p>
-            </div>
-          </div>
-
-          {/* Solution */}
-          <div className="flex gap-3">
-            <Lightbulb className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest font-heading">Targeted Solution</span>
-              <p className="text-blue-300 leading-relaxed font-semibold">{ind.solution}</p>
-            </div>
-          </div>
-
-          {/* Primary Benefit */}
-          <div className="flex gap-3 bg-white/[0.01] border border-white/[0.04] p-3 rounded-2xl">
-            <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-            <div className="space-y-0.5">
-              <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest font-heading">Operational Benefit</span>
-              <p className="text-slate-300 leading-relaxed font-medium">{ind.benefit}</p>
-            </div>
-          </div>
-
-          {/* Case Study Summary */}
-          <div className="bg-white/[0.02] border border-white/[0.05] p-4 rounded-2xl space-y-2.5">
-            <div className="flex justify-between items-center flex-wrap gap-2">
-              <span className="font-extrabold text-white text-xs font-heading">Client: {ind.client}</span>
-              <span className="font-mono text-blue-300 text-[9px] bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">{ind.projectType}</span>
-            </div>
-            <p className="text-slate-300 leading-relaxed text-[11px]"><strong className="text-white font-semibold">Scope:</strong> {ind.scope}</p>
-            <p className="text-blue-300/80 font-mono text-[9px] pt-2 border-t border-white/[0.04]"><strong className="text-slate-400 font-sans font-bold uppercase text-[8px] tracking-wider pr-1">Tech Stack:</strong> {ind.tech}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Action Links */}
-      <div className="mt-6 pt-4 border-t border-white/[0.05] flex items-center justify-between">
-        <button
-          onClick={() => navigate('/contact')}
-          className="text-xs font-bold text-slate-300 hover:text-white hover:underline cursor-pointer flex items-center gap-1"
-        >
-          Enquire for Sector
-          <ChevronRight className="w-3 h-3" />
-        </button>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs font-bold text-emerald-400 hover:text-emerald-300 cursor-pointer"
-        >
-          WhatsApp Us
-        </a>
-      </div>
-    </div>
   );
 }
