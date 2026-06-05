@@ -16,7 +16,8 @@ import {
   ShieldCheck,
   ChevronRight,
   Phone,
-  Mail
+  Mail,
+  Cpu
 } from 'lucide-react';
 
 const Linkedin = ({ className }) => (
@@ -69,13 +70,14 @@ export default function Home() {
   ];
 
   const industriesWeServe = [
-    { title: 'Manufacturing', icon: Factory },
-    { title: 'Construction', icon: Building2 },
-    { title: 'Agriculture', icon: Leaf },
-    { title: 'Startups & SMEs', icon: Rocket },
-    { title: 'EDTECH', icon: GraduationCap },
-    { title: 'Logistics', icon: Truck },
-    { title: 'Retail', icon: ShoppingBag },
+    { title: 'Manufacturing', icon: Factory, desc: 'Custom ERP systems for steel, textile, and heavy process industries.', span: 2 },
+    { title: 'Construction', icon: Building2, desc: 'Material logistics, billing, and site delivery management.', span: 1 },
+    { title: 'Agriculture', icon: Leaf, desc: 'Farm-to-market trading, weighbridge automation, and crop logistics.', span: 1 },
+    { title: 'Startups & SMEs', icon: Rocket, desc: 'Rapid MVPs, digital presence, and cloud-first solutions for growing ventures.', span: 1 },
+    { title: 'EdTech', icon: GraduationCap, desc: 'Student portals, GPA automation, and real-time parent notifications.', span: 2 },
+    { title: 'Logistics', icon: Truck, desc: 'Fleet management, route tracking, driver logs, and fuel auditing.', span: 1 },
+    { title: 'Retail', icon: ShoppingBag, desc: 'Bilingual POS systems and offline-first GST billing solutions.', span: 2 },
+    { title: 'IT & Technology', icon: Cpu, desc: 'Tech staffing, offshore delivery teams, and strategic digital consulting.', span: 2 },
   ];
 
   return (
@@ -262,97 +264,90 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5: Industries We Serve — Glassmorphic Premium */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-brand-primary border-b border-slate-800">
-        {/* Subtle tech grid backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
+      {/* SECTION 5: Industries We Serve — Premium Bento Grid */}
+      <section className="py-24 md:py-32 bg-gradient-to-b from-white via-slate-50/40 to-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-        {/* Soft glowing blur orbs */}
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Section Header */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '-80px' }}
             variants={staggerContainer}
             className="text-center space-y-5 max-w-3xl mx-auto"
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-blue-400 text-xs font-bold uppercase tracking-widest font-heading"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-secondary/8 border border-brand-secondary/15 text-brand-secondary text-xs font-bold uppercase tracking-widest font-heading"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
               Market Verticals
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl md:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight"
+              className="text-3xl md:text-5xl font-extrabold text-brand-primary tracking-tight font-heading leading-tight"
             >
               Industries We Serve
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-base sm:text-lg text-slate-400 leading-relaxed"
+              className="text-base sm:text-lg text-brand-text leading-relaxed max-w-2xl mx-auto"
             >
-              We bring deep engineering expertise and business-first technology architectures to critical sectors across India.
+              We bring deep engineering expertise and business-first technology to the sectors that drive the real economy.
             </motion.p>
           </motion.div>
 
-          {/* Staggered premium cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-8">
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto">
             {industriesWeServe.map((ind, idx) => {
               const Icon = ind.icon;
-
-              // Stagger vertical offsets for visual rhythm
-              const offsets = ['lg:translate-y-0', 'lg:translate-y-8', 'lg:translate-y-4', 'lg:translate-y-12', 'lg:translate-y-2', 'lg:translate-y-10', 'lg:translate-y-6'];
-              const offset = offsets[idx % offsets.length];
-
+              const isWide = ind.span === 2;
               return (
                 <motion.button
                   key={idx}
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={{ once: true, margin: '-40px' }}
                   onClick={() => navigate('/industries')}
-                  className={`group relative flex flex-col items-start gap-5 text-left p-6 rounded-2xl cursor-pointer
-                    bg-slate-900/40 backdrop-blur-lg
-                    border border-slate-800/80
-                    shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_10px_30px_rgba(0,0,0,0.3)]
-                    hover:bg-slate-900/65 hover:border-blue-500/30
-                    hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.12)]
-                    hover:-translate-y-1.5
-                    transition-all duration-500 ${offset}`}
+                  className={`group relative text-left cursor-pointer rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-brand-secondary/25 transition-all duration-300 overflow-hidden ${
+                    isWide ? 'lg:col-span-2' : 'lg:col-span-1'
+                  }`}
                 >
-                  {/* Icon glow ring */}
-                  <div className="w-12 h-12 rounded-xl bg-blue-950/50 border border-blue-500/25 flex items-center justify-center text-blue-400 shadow-[0_0_18px_rgba(59,130,246,0.25)] group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(59,130,246,0.45)] transition-all duration-400">
-                    <Icon className="w-5 h-5" />
-                  </div>
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-slate-50/80 pointer-events-none" />
+                  {/* Hover glow accent top */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  {/* Label */}
-                  <div className="space-y-1.5">
-                    <h3 className="text-base font-bold text-white font-heading group-hover:text-blue-300 transition-colors duration-300">
-                      {ind.title}
-                    </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
-                      Tailored solutions &amp; client case studies
-                    </p>
-                  </div>
+                  <div className={`relative z-10 ${ isWide ? 'flex flex-row items-center gap-6 p-7 sm:p-8' : 'flex flex-col gap-4 p-6' }`}>
+                    {/* Icon */}
+                    <div className={`shrink-0 flex items-center justify-center rounded-xl bg-brand-secondary/6 border border-brand-secondary/12 text-brand-secondary group-hover:bg-brand-secondary group-hover:text-white group-hover:border-brand-secondary transition-all duration-300 ${
+                      isWide ? 'w-14 h-14' : 'w-12 h-12'
+                    }`}>
+                      <Icon className={isWide ? 'w-6 h-6' : 'w-5 h-5'} />
+                    </div>
 
-                  {/* Hover arrow indicator */}
-                  <div className="absolute bottom-5 right-5 text-slate-600 group-hover:text-blue-400 transition-all duration-300 group-hover:translate-x-0.5">
-                    <ChevronRight className="w-4 h-4" />
+                    {/* Content */}
+                    <div className="flex-1 space-y-1.5 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className={`font-bold text-brand-primary font-heading group-hover:text-brand-secondary transition-colors duration-200 ${
+                          isWide ? 'text-lg sm:text-xl' : 'text-base'
+                        }`}>
+                          {ind.title}
+                        </h3>
+                        <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-secondary group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+                      </div>
+                      <p className={`text-brand-text leading-relaxed ${ isWide ? 'text-sm' : 'text-xs' }`}>
+                        {ind.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.button>
               );
             })}
           </div>
 
-          {/* CTA link */}
+          {/* Footer CTA */}
           <motion.div
             variants={fadeInUp}
             initial="hidden"
@@ -362,7 +357,7 @@ export default function Home() {
           >
             <button
               onClick={() => navigate('/industries')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500/50 hover:text-white hover:bg-slate-800/60 text-sm font-semibold transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-primary text-white hover:bg-brand-secondary text-sm font-bold transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg"
             >
               View all client case studies
               <ChevronRight className="w-4 h-4" />
@@ -370,6 +365,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
 
       {/* SECTION 6: Why Choose M2P Nexus */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
