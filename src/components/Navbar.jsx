@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import m2pLogo from '../assets/m2p_nexus_logo.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,15 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center space-x-2 text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-emerald font-display">
-          <span>M2P NEXUS</span>
+        <a href="#home" className="flex items-center space-x-3 group select-none cursor-pointer">
+          <img
+            src={m2pLogo}
+            alt="M2P Nexus Logo"
+            className="h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+          />
+          <span className="text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-emerald font-display transition-all duration-300 group-hover:brightness-110">
+            M2P NEXUS
+          </span>
         </a>
 
         {/* Desktop Menu */}

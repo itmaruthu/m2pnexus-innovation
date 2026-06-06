@@ -51,7 +51,7 @@ export default function AIAssistant() {
       );
     } else if (action === 'explain-contact') {
       triggerBotReply(
-        "You can call Priyanka or Maruthu directly at +91 99442 83316 / +91 63804 65605, or email hrpriyaanka@gmail.com. We are located in Madurai, Tamil Nadu. Feel free to request a call back here."
+        "You can call Priyanka or Maruthu directly at +91 99442 83316 / +91 63804 65605, or email hello@m2pnexus.com. We are located in Madurai, Tamil Nadu. Feel free to request a call back here."
       );
     } else if (action === 'start-lead') {
       setLeadStep('name');

@@ -32,7 +32,7 @@ export default function Founders() {
       quote: 'Building technology that accelerates business growth.',
       bio: 'Pioneering scalable cloud solutions, robust automation systems, and high-performance React architectures for startups globally. Over a decade of software engineering expertise.',
       linkedin: 'https://www.linkedin.com/in/maruthupandi',
-      email: 'hrpriyaanka@gmail.com', // fallback
+      email: 'hello@m2pnexus.com', // fallback
       color: 'cyan',
       comment: '<!-- Replace with actual founder image -->',
       avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600', // Premium Unsplash placeholder
@@ -44,7 +44,7 @@ export default function Founders() {
       quote: 'Human Capital, Engineered with Intent.',
       bio: 'Specializing in capacity planning, fractional HR leadership, and building custom engineering pipelines that align candidate capabilities with business timelines.',
       linkedin: 'https://www.linkedin.com/in/priyanka-hr',
-      email: 'hrpriyaanka@gmail.com',
+      email: 'hello@m2pnexus.com',
       color: 'purple',
       comment: '<!-- Replace with actual founder image -->',
       avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600', // Premium Unsplash placeholder
