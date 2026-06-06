@@ -1,5 +1,7 @@
 import React from 'react';
 import { Mail, ArrowUpRight } from 'lucide-react';
+import founderPhoto from '../assets/founder_photo.jpg';
+import coFounderPhoto from '../assets/co_founder_photo.png';
 
 function Linkedin({ size = 16, className = "" }) {
   return (
@@ -35,7 +37,8 @@ export default function Founders() {
       email: 'hello@m2pnexus.com', // fallback
       color: 'cyan',
       comment: '<!-- Replace with actual founder image -->',
-      avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600', // Premium Unsplash placeholder
+      avatarUrl: founderPhoto,
+      position: 'object-[center_18%]',
     },
     {
       name: 'Priyanka',
@@ -47,7 +50,8 @@ export default function Founders() {
       email: 'hello@m2pnexus.com',
       color: 'purple',
       comment: '<!-- Replace with actual founder image -->',
-      avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600', // Premium Unsplash placeholder
+      avatarUrl: coFounderPhoto,
+      position: 'object-[center_12%]',
     },
   ];
 
@@ -80,11 +84,11 @@ export default function Founders() {
               <div dangerouslySetInnerHTML={{ __html: founder.comment }} className="hidden" />
 
               {/* Avatar Wrapper */}
-              <div className="w-32 h-32 md:w-36 md:h-36 rounded-xl border border-white/10 overflow-hidden shrink-0 relative bg-brand-navy">
+              <div className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-white/10 overflow-hidden shrink-0 relative bg-brand-navy shadow-xl">
                 <img
                   src={founder.avatarUrl}
                   alt={founder.name}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className={`w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 ${founder.position}`}
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-brand-${founder.color}/30 to-transparent pointer-events-none`} />
               </div>
